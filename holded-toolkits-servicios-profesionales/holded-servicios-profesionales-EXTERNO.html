@@ -117,7 +117,7 @@
     line-height: 12px;
   }
   .hero-image {
-    width: 479.83px;
+    width: 330px;
     height: 318px;
     border-radius: 8px;
     overflow: hidden;
@@ -169,30 +169,75 @@
     align-items: flex-start;
   }
   .reto-num {
-    font-weight: 700;
-    color: var(--gray-400);
+    font-weight: 600;
+    color: var(--white);
+    background: var(--gray-900);
+    border-radius: 2.625px;
     flex-shrink: 0;
-    min-width: 14px;
+    width: 16px;
+    height: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    line-height: 10px;
+  }
+
+  /* GREY BLOCK WRAPPER */
+  .grey-block {
+    background: #F3F4F6;
+    width: 100%;
+    padding: 80px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
   }
 
   /* SOLUCIONES */
+  .soluciones-intro {
+    font-size: 10px;
+    font-weight: 400;
+    color: var(--gray-900);
+    text-align: center;
+    line-height: 12px;
+    width: 433px;
+  }
   .soluciones-grid {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    width: 513px;
+    width: 433px;
+  }
+  .soluciones-row {
+    display: flex;
+    gap: 10px;
   }
   .solucion-card {
-    background: var(--gray-100);
+    background: var(--white);
     border-radius: 4px;
-    padding: 12px 14px;
+    padding: 10px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .solucion-card.full {
+    flex: unset;
+    width: 100%;
   }
   .solucion-title {
+    display: inline-flex;
+    align-items: center;
+    background: var(--gray-900);
+    color: var(--white);
     font-size: 10px;
-    font-weight: 700;
-    color: var(--gray-900);
+    font-weight: 600;
     line-height: 14.044px;
-    margin-bottom: 3px;
+    padding: 2px 7px;
+    border-radius: 3px;
+    white-space: nowrap;
+    align-self: flex-start;
   }
   .solucion-text {
     font-size: 10px;
@@ -202,120 +247,182 @@
   }
 
   /* FEATURES LIST */
+  .features-subtitle {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--gray-900);
+    letter-spacing: -0.16px;
+    line-height: 16px;
+    text-align: center;
+    width: 352px;
+  }
   .features-list {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    width: 513px;
+    width: 433px;
   }
   .feature-item {
+    background: var(--white);
+    border-radius: 4px;
+    padding: 5px 10px;
+    display: flex;
+    align-items: flex-start;
+  }
+  .feature-item ul {
+    margin: 0;
+    padding-left: 15px;
+    font-size: 10px;
+    font-weight: 400;
+    color: var(--gray-900);
+    line-height: 14.044px;
+    list-style: disc;
+  }
+
+  /* PASOS */
+  .pasos-subtitle {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--gray-900);
+    letter-spacing: -0.16px;
+    line-height: 16px;
+    text-align: center;
+    width: 352px;
+  }
+  .pasos-progress {
+    background: var(--gray-100);
+    border-radius: 4px;
+    padding: 7px 0;
+    width: 433px;
+  }
+  .pasos-progress-bar {
+    background: #111827;
+    border-radius: 6.692px;
+    height: 63px;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+  }
+  .pasos-progress-seg {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 10px;
+    position: relative;
+  }
+  .pasos-progress-seg.s1 { width: 27%; background: #111827; }
+  .pasos-progress-seg.s2 { width: 46%; background: #374151; }
+  .pasos-progress-seg.s3 { width: 27%; background: #9CA3AF; }
+  .pasos-progress-num {
+    font-size: 7.76px;
+    font-weight: 700;
+    color: #FF5454;
+    line-height: 9.76px;
+    letter-spacing: -0.155px;
+  }
+  .pasos-progress-text {
+    font-size: 8.365px;
+    font-weight: 500;
+    color: white;
+    line-height: 8.365px;
+    letter-spacing: -0.167px;
+    margin-top: 2px;
+  }
+  .pasos-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 433px;
+  }
+  .paso-row {
+    display: flex;
+    gap: 10px;
+    align-items: stretch;
+  }
+  .paso-left {
+    flex: 1;
+    padding: 7px 10px;
+    border-radius: 4px;
+    font-size: 10px;
+    font-weight: 700;
+    color: white;
+    line-height: 14.044px;
+  }
+  .paso-left.s1 { background: #111827; }
+  .paso-left.s2 { background: #4B5563; }
+  .paso-left.s3 { background: #9CA3AF; }
+  .paso-left-sub {
+    font-weight: 400;
+    color: rgba(255,255,255,0.6);
+    line-height: 14.044px;
+  }
+  .paso-left.s2 .paso-left-sub { color: #9CA3AF; }
+  .paso-right {
+    flex: 1;
+    background: white;
+    border-radius: 4px;
+    padding: 7px 10px;
+    font-size: 10px;
+    font-weight: 400;
+    color: var(--gray-500);
+    line-height: 14.044px;
+  }
+  .paso-right ul {
+    padding-left: 15px;
+    list-style: disc;
+    margin: 0;
+  }
+  .paso-right p { margin: 0; }
+
+  /* ALIADO */
+  .aliado-intro {
     background: var(--gray-100);
     border-radius: 4px;
     padding: 7px 10px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-  .feature-icon {
-    width: 21px;
-    height: 21px;
-    background: var(--white);
-    border-radius: 2.625px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    font-size: 10px;
-  }
-  .feature-text {
+    width: 371px;
     font-size: 10px;
     font-weight: 600;
     color: var(--gray-900);
     line-height: 14.044px;
+    text-align: center;
   }
-  .feature-text span {
-    font-weight: 400;
-    color: var(--gray-500);
-  }
-
-  /* PASOS */
-  .pasos-container {
+  .aliado-items {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    width: 513px;
+    align-items: center;
   }
-  .paso-card {
+  .aliado-item {
     background: var(--gray-100);
     border-radius: 4px;
-    padding: 14px;
+    padding: 7px 10px;
+    width: 282px;
     display: flex;
-    gap: 14px;
-    align-items: flex-start;
+    gap: 10px;
+    align-items: center;
   }
-  .paso-num {
-    width: 24px;
-    height: 24px;
+  .aliado-num {
     background: var(--gray-900);
-    border-radius: 50%;
-    color: var(--white);
-    font-size: 10px;
-    font-weight: 700;
+    border-radius: 2.625px;
+    width: 21px;
+    height: 21px;
+    flex-shrink: 0;
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-shrink: 0;
-  }
-  .paso-content {}
-  .paso-title {
     font-size: 10px;
-    font-weight: 700;
+    font-weight: 600;
+    color: var(--white);
+    line-height: 10px;
+  }
+  .aliado-item-text {
+    font-size: 10px;
+    font-weight: 600;
     color: var(--gray-900);
     line-height: 14.044px;
-    margin-bottom: 4px;
-  }
-  .paso-text {
-    font-size: 10px;
-    font-weight: 400;
-    color: var(--gray-500);
-    line-height: 14.044px;
-  }
-  .paso-checks {
-    margin-top: 6px;
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-  }
-  .paso-check {
-    font-size: 10px;
-    color: var(--gray-500);
-    line-height: 14.044px;
-  }
-
-  /* ALIADO */
-  .aliado-card {
-    background: var(--gray-100);
-    border-radius: 4px;
-    padding: 14px;
-    width: 513px;
-  }
-  .aliado-title {
-    font-size: 10px;
-    font-weight: 700;
-    color: var(--gray-900);
-    line-height: 14.044px;
-    margin-bottom: 8px;
-  }
-  .aliado-checks {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-  }
-  .aliado-check {
-    font-size: 10px;
-    font-weight: 400;
-    color: var(--gray-500);
-    line-height: 14.044px;
+    flex: 1;
   }
 
   /* CTA */
@@ -323,9 +430,10 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 16px;
+    gap: 30px;
     width: 100%;
-    padding: 0 89px;
+    padding: 40px 0;
+    background: var(--gray-100);
   }
   .cta-title {
     font-size: 40px;
@@ -338,13 +446,22 @@
   .cta-text {
     font-size: 10px;
     font-weight: 400;
-    color: var(--gray-500);
-    line-height: 14.044px;
+    color: var(--gray-900);
+    line-height: 12px;
     text-align: center;
-    width: 433px;
+    width: 353px;
   }
-  .cta-text b { font-weight: 700; color: var(--gray-900); }
-  .cta-text a { color: var(--gray-900); font-weight: 600; }
+  .cta-text b { font-weight: 700; }
+  .cta-text a { color: var(--gray-900); text-decoration: underline; }
+  .cta-subtitle {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--gray-900);
+    letter-spacing: -0.49px;
+    line-height: 1;
+    text-align: center;
+    width: 289px;
+  }
   .cta-btn {
     background: var(--gray-900);
     color: var(--white);
@@ -355,7 +472,6 @@
     letter-spacing: -0.1px;
     cursor: pointer;
     border: none;
-    margin-top: 4px;
   }
 
   /* TESTIMONIALS */
@@ -423,6 +539,7 @@
     height: 100%;
     display: block;
   }
+  .footer {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -433,7 +550,7 @@
     width: 496px;
     height: 1px;
     background: var(--gray-100);
-    margin-bottom: 12px;
+    margin: 20px 0 12px;
   }
   .footer-text {
     font-size: 12px;
@@ -458,7 +575,7 @@
   <!-- HERO -->
   <div class="hero">
     <div class="hero-titles">
-      <div class="hero-title">Servicios<br>Profesionales<br>y Holded</div>
+      <div class="hero-title">Servicios<br>Profesionales</div>
       <div class="hero-tagline">Trabaja mejor, gestiona sin complicaciones.</div>
     </div>
     <p class="hero-desc">Holded, la herramienta ideal para empresas de servicios profesionales, con tu partner experto.</p>
@@ -474,102 +591,133 @@
   <div class="section">
     <div class="section-title">¿Te suenan estos retos?</div>
     <div class="retos-list">
-      <div class="reto-item"><span class="reto-num">1.</span>Falta de visibilidad financiera en tiempo real.</div>
-      <div class="reto-item"><span class="reto-num">2.</span>Pérdida de tiempo con Excel, Word y herramientas no conectadas.</div>
-      <div class="reto-item"><span class="reto-num">3.</span>Contabilidad 100% externalizada que limita la autonomía.</div>
-      <div class="reto-item"><span class="reto-num">4.</span>No hay un sistema integrado para ventas, contabilidad y proyectos.</div>
-      <div class="reto-item"><span class="reto-num">5.</span>Equipos técnicos saturados con tareas administrativas.</div>
+      <div class="reto-item"><span class="reto-num">1</span>Falta de visibilidad financiera en tiempo real.</div>
+      <div class="reto-item"><span class="reto-num">2</span>Pérdida de tiempo con Excel, Word y herramientas no conectadas.</div>
+      <div class="reto-item"><span class="reto-num">3</span>Contabilidad 100% externalizada que limita la autonomía.</div>
+      <div class="reto-item"><span class="reto-num">4</span>No hay un sistema integrado para ventas, contabilidad y proyectos.</div>
+      <div class="reto-item"><span class="reto-num">5</span>Equipos técnicos saturados con tareas administrativas.</div>
     </div>
   </div>
 
-  <!-- SOLUCIONES -->
-  <div class="section">
-    <div class="section-title">¿Por qué Holded<br>es tu solución?</div>
-    <div class="soluciones-grid">
-      <div class="solucion-card">
-        <div class="solucion-title">Facturar y mucho más</div>
-        <div class="solucion-text">Holded integra la facturación, la gestión de tus contactos, RRHH y mucho más.</div>
-      </div>
-      <div class="solucion-card">
-        <div class="solucion-title">Una sola herramienta</div>
-        <div class="solucion-text">Centraliza facturación, tesorería, contabilidad, CRM y más en una sola plataforma, sin depender de múltiples herramientas.</div>
-      </div>
-      <div class="solucion-card">
-        <div class="solucion-title">Visibilidad al momento</div>
-        <div class="solucion-text">Accede a informes visuales con los datos clave para la toma de decisiones: balances, ingresos, gastos, rentabilidad por proyectos y mucho más.</div>
-      </div>
-      <div class="solucion-card">
-        <div class="solucion-title">Ahorra tiempo</div>
-        <div class="solucion-text">Automatiza tareas repetitivas, escanea los gastos de forma automática, concilia cobros y gastos en un clic y gana autonomía.</div>
-      </div>
-      <div class="solucion-card">
-        <div class="solucion-title">Empieza fácil</div>
-        <div class="solucion-text">Importación sencilla de datos, recursos de ayuda (artículos, videotutoriales, etc.) y soporte personalizado de tu partner experto.</div>
-      </div>
-    </div>
-  </div>
+  <!-- GREY BLOCK: Soluciones + Algo más + Pasos -->
+  <div class="grey-block">
 
-  <!-- MÁS CON HOLDED -->
-  <div class="section">
-    <div class="section-title">¿Algo más? Sí,<br>siempre más con Holded</div>
-    <div class="features-list">
-      <div class="feature-item">
-        <div class="feature-icon">✅</div>
-        <div class="feature-text">Mejora continua del producto <span>(con feedback real de usuarios).</span></div>
-      </div>
-      <div class="feature-item">
-        <div class="feature-icon">✅</div>
-        <div class="feature-text">Portal de asesorías <span>para contabilidad colaborativa y fluida.</span></div>
-      </div>
-      <div class="feature-item">
-        <div class="feature-icon">✅</div>
-        <div class="feature-text">Cumplimiento normativo <span>y actualizaciones legales al día.</span></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- PASOS DEL ÉXITO -->
-  <div class="section">
-    <div class="section-title">Los pasos del éxito</div>
-    <div class="pasos-container">
-      <div class="paso-card">
-        <div class="paso-num">1</div>
-        <div class="paso-content">
-          <div class="paso-title">Diagnóstico inicial</div>
-          <div class="paso-text">Reunión para entender tu operativa y necesidades específicas.</div>
+    <!-- SOLUCIONES -->
+    <div class="section">
+      <div class="section-title">¿Por qué Holded<br>es tu solución?</div>
+      <p class="soluciones-intro">Como pyme del sector de servicios profesionales necesitas herramientas ágiles,<br>integradas y fáciles de usar. Con Holded podrás:</p>
+      <div class="soluciones-grid">
+        <div class="soluciones-row">
+          <div class="solucion-card">
+            <div class="solucion-title">Facturación y mucho más</div>
+            <div class="solucion-text">Holded integra la facturación, la gestión de tus contactos, RRHH y mucho más.</div>
+          </div>
+          <div class="solucion-card">
+            <div class="solucion-title">Una sola herramienta</div>
+            <div class="solucion-text">Centraliza facturación, tesorería, contabilidad, CRM y más en una sola plataforma, sin depender de múltiples herramientas.</div>
+          </div>
         </div>
-      </div>
-      <div class="paso-card">
-        <div class="paso-num">2</div>
-        <div class="paso-content">
-          <div class="paso-title">Demostración adaptada</div>
-          <div class="paso-text">Te enseñamos cómo Holded se adapta a la realidad de tu negocio:</div>
-          <div class="paso-checks">
-            <div class="paso-check">✅ Plataforma todo en uno</div>
-            <div class="paso-check">✅ Control financiero en tiempo real</div>
-            <div class="paso-check">✅ Automatización de tareas</div>
+        <div class="soluciones-row">
+          <div class="solucion-card">
+            <div class="solucion-title">Visibilidad al momento</div>
+            <div class="solucion-text">Accede a informes visuales con los datos clave para la toma de decisiones: balances, ingresos, gastos, rentabilidad por proyectos y mucho más.</div>
+          </div>
+          <div class="solucion-card">
+            <div class="solucion-title">Ahorra tiempo</div>
+            <div class="solucion-text">Automatiza tareas repetitivas, escanea los gastos de forma automática, concilia cobros y gastos en un clic y gana autonomía.</div>
+          </div>
+        </div>
+        <div class="soluciones-row">
+          <div class="solucion-card full">
+            <div class="solucion-title">Empieza fácil</div>
+            <div class="solucion-text">Importación sencilla de datos, recursos de ayuda (artículos, videotutoriales, etc.) y soporte personalizado de tu partner experto.</div>
           </div>
         </div>
       </div>
-      <div class="paso-card">
-        <div class="paso-num">3</div>
-        <div class="paso-content">
-          <div class="paso-title">Propuesta personalizada</div>
-          <div class="paso-text">Plan claro de implementación acompañado por tu Partner experto en todo momento.</div>
+    </div>
+
+    <!-- MÁS CON HOLDED -->
+    <div class="section">
+      <div class="features-subtitle">¿Algo más? Sí, siempre más con Holded</div>
+      <div class="features-list">
+        <div class="feature-item">
+          <ul><li>Mejora continua del producto (con feedback real de usuarios).</li></ul>
+        </div>
+        <div class="feature-item">
+          <ul><li>Portal de asesorías para contabilidad colaborativa y fluida.</li></ul>
+        </div>
+        <div class="feature-item">
+          <ul><li>Cumplimiento normativo y actualizaciones legales al día.</li></ul>
         </div>
       </div>
     </div>
+
+    <!-- PASOS DEL ÉXITO -->
+    <div class="section">
+      <div class="pasos-subtitle">Los pasos del éxito</div>
+      <div class="pasos-progress">
+        <div class="pasos-progress-bar">
+          <div class="pasos-progress-seg s1">
+            <div class="pasos-progress-num">1.</div>
+            <div class="pasos-progress-text">¿Qué procesos quieres hacer en Holded?</div>
+          </div>
+          <div class="pasos-progress-seg s2">
+            <div class="pasos-progress-num">2.</div>
+            <div class="pasos-progress-text">Haz una demo y confirma tus necesidades. ¿Qué plan tienes que seguir?</div>
+          </div>
+          <div class="pasos-progress-seg s3">
+            <div class="pasos-progress-num">3.</div>
+            <div class="pasos-progress-text">Propuesta Personalizada</div>
+          </div>
+        </div>
+      </div>
+      <div class="pasos-list">
+        <div class="paso-row">
+          <div class="paso-left s1"><ol start="1" style="padding-left:15px;margin:0;"><li>Diagnóstico inicial</li></ol></div>
+          <div class="paso-right"><ul><li>Reunión para entender tu operativa y necesidades específicas.</li></ul></div>
+        </div>
+        <div class="paso-row">
+          <div class="paso-left s2">
+            <ol start="2" style="padding-left:15px;margin:0;">
+              <li>Demostración adaptada<br><span class="paso-left-sub">Te mostramos cómo Holded resuelve tus problemas:</span></li>
+            </ol>
+          </div>
+          <div class="paso-right">
+            <ul style="margin-bottom:4px;"><li>Te enseñamos cómo Holded se adapta a la realidad de tu negocio:</li></ul>
+            <p>&#x2713;&nbsp; Plataforma todo en uno</p>
+            <p>&#x2713;&nbsp; Control financiero en tiempo real</p>
+            <p>&#x2713;&nbsp; Automatización de tareas</p>
+          </div>
+        </div>
+        <div class="paso-row">
+          <div class="paso-left s3">
+            <ol start="3" style="padding-left:15px;margin:0;">
+              <li>Propuesta personalizada:<br><span class="paso-left-sub">Te entregamos un plan claro que incluye:</span></li>
+            </ol>
+          </div>
+          <div class="paso-right"><ul><li>Plan claro de implementación acompañado por tu Partner experto en todo momento.</li></ul></div>
+        </div>
+      </div>
+    </div>
+
   </div>
 
   <!-- ALIADO -->
   <div class="section">
     <div class="section-title">¿Por qué somos<br>tu mejor aliado?</div>
-    <div class="aliado-card">
-      <div class="aliado-title">Con tu Partner experto, tienes a un aliado en el día a día. Directamente en la plataforma tienes:</div>
-      <div class="aliado-checks">
-        <div class="aliado-check">✔️ Mejora inmediata en gestión y control</div>
-        <div class="aliado-check">✔️ Implementación rápida y sin fricciones</div>
-        <div class="aliado-check">✔️ Resultados visibles desde el primer mes</div>
+    <div class="aliado-intro">Con tu Partner experto, tienes a un aliado en el día a día que además te ayudará con Holded. Pero directamente en la plataforma tienes:</div>
+    <div class="aliado-items">
+      <div class="aliado-item">
+        <div class="aliado-num">1</div>
+        <div class="aliado-item-text">Mejora inmediata en gestión y control</div>
+      </div>
+      <div class="aliado-item">
+        <div class="aliado-num">2</div>
+        <div class="aliado-item-text">Implementación rápida y sin fricciones</div>
+      </div>
+      <div class="aliado-item">
+        <div class="aliado-num">3</div>
+        <div class="aliado-item-text">Resultados visibles desde el primer mes</div>
       </div>
     </div>
   </div>
@@ -577,19 +725,20 @@
   <!-- CTA -->
   <div class="cta-block">
     <div class="cta-title">¿Empezamos?</div>
-    <div class="cta-text">Ve a <a href="https://holded.com/es">holded.com/es</a> y crea tu cuenta de prueba gratis durante 14 días. Sigue "los pasos del éxito" y no olvides que puedes apoyarte en tu Partner y en el equipo de Holded. <b>Tu éxito es nuestro objetivo.</b></div>
+    <div class="cta-text">Ve a <a href="https://holded.com/es">holded.com/es</a> y crea tu cuenta de prueba gratis durante 14 días. Sigue "los pasos del éxito" y no olvides que puedes apoyarte en tu Partner y en el equipo de Holded. <b>¡Empieza hoy a facturar con Holded!</b></div>
+    <div class="cta-subtitle">Tu éxito es nuestro objetivo.</div>
     <button class="cta-btn">Crear cuenta gratis →</button>
   </div>
 
   <!-- FOOTER -->
   <div class="footer">
-    <div class="footer-line"></div>
     <div class="logo">
       <img class="logo-diamond" src="https://www.figma.com/api/mcp/asset/643cdf15-3efa-414d-a6a1-14156f92585b" alt="" />
       <div class="logo-wordmark">
         <img src="https://www.figma.com/api/mcp/asset/f461efb3-4547-44bf-9392-c34d5d346495" alt="holded" />
       </div>
     </div>
+    <div class="footer-line"></div>
     <div class="footer-text">© Holded · Documento para uso externo</div>
   </div>
 
