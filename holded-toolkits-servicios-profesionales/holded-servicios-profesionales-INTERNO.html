@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Toolkit Servicios Profesionales — Interno</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  @font-face {
+    font-family: 'Font Awesome 7 Pro';
+    font-style: normal;
+    font-weight: 100;
+    src: url('Font_Awesome_7_Pro-Thin-100.otf') format('opentype');
+  }
+  @font-face {
+    font-family: 'Font Awesome 7 Pro';
+    font-style: normal;
+    font-weight: 300;
+    src: url('Font_Awesome_7_Pro-Light-300.otf') format('opentype');
+  }
+  @font-face {
+    font-family: 'Font Awesome 7 Pro';
+    font-style: normal;
+    font-weight: 400;
+    src: url('Font_Awesome_7_Pro-Regular-400.otf') format('opentype');
+  }
+  @font-face {
+    font-family: 'Font Awesome 7 Pro';
+    font-style: normal;
+    font-weight: 900;
+    src: url('Font_Awesome_7_Pro-Solid-900.otf') format('opentype');
+  }
+  .fa-icon {
+    font-family: 'Font Awesome 7 Pro';
+    font-weight: 900;
+    font-style: normal;
+    font-size: 12px;
+    color: #111827;
+    line-height: 12px;
+    display: block;
+  }
+</style>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --gray-900: #111827;
+    --gray-500: #6B7280;
+    --gray-400: #9CA3AF;
+    --gray-100: #F3F4F6;
+    --white: #FFFFFF;
+    --red: #FF5454;
+    --navy-overlay: rgba(14,36,85,0.05);
+    --doc-width: 691px;
+  }
+
+  body {
+    background: #e5e7eb;
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    justify-content: center;
+    padding: 48px 24px;
+    min-height: 100vh;
+  }
+
+  .document {
+    position: relative;
+    width: var(--doc-width);
+    background: var(--white);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 70px;
+    padding: 30px 0;
+  }
+
+  /* WATERMARK — wrapper que contiene logo + hero + texto "Internal use" solapado */
+  .hero-wrapper {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 70px;
+  }
+  .watermark {
+    position: absolute;
+    top: -18px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 134.269px;
+    color: var(--navy-overlay);
+    white-space: nowrap;
+    letter-spacing: -7.3848px;
+    pointer-events: none;
+    z-index: 1;
+    line-height: 1;
+  }
+  /* Logo y hero dentro del wrapper, por encima de la watermark */
+  .hero-wrapper .logo,
+  .hero-wrapper .hero { position: relative; z-index: 2; }
+
+  /* LOGO */
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 3.359px;
+  }
+  .logo-diamond {
+    width: 12.31px;
+    height: 10.75px;
+    flex-shrink: 0;
+    display: block;
+  }
+  .logo-wordmark {
+    width: 49.523px;
+    height: 10.88px;
+    flex-shrink: 0;
+    display: block;
+    overflow: hidden;
+  }
+  .logo-wordmark img {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+
+  /* HERO */
+  .hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    width: 100%;
+  }
+  .hero-titles {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    line-height: 0.85;
+  }
+  .hero-title {
+    font-size: 60px;
+    font-weight: 600;
+    color: var(--gray-900);
+    letter-spacing: -3.3px;
+    text-align: center;
+    line-height: 0.85;
+  }
+  .hero-subtitle {
+    font-size: 20px;
+    font-weight: 400;
+    color: var(--gray-400);
+    letter-spacing: -1.1px;
+    line-height: 0.85;
+  }
+  .hero-desc {
+    font-size: 10px;
+    font-weight: 400;
+    color: var(--gray-900);
+    text-align: center;
+    width: 293px;
+    line-height: 12px;
+  }
+  .hero-image {
+    width: 479.83px;
+    height: 318px;
+    border-radius: 8px;
+    overflow: hidden;
+    flex-shrink: 0;
+    position: relative;
+  }
+  .hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 30%;
+    display: block;
+  }
+
+  /* SECTION */
+  .section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    width: 100%;
+  }
+  .section-title {
+    font-size: 40px;
+    font-weight: 600;
+    color: var(--gray-900);
+    letter-spacing: -2.2px;
+    line-height: 0.85;
+    text-align: center;
+  }
+
+  /* PAIN POINTS GRID */
+  .pain-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 513px;
+  }
+  .pain-row {
+    display: flex;
+    gap: 10px;
+  }
+  .pain-card {
+    flex: 1;
+    background: var(--gray-100);
+    border-radius: 4px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .pain-card.full { flex: unset; width: 251.5px; }
+  .pain-problem {
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--red);
+    letter-spacing: -0.2px;
+    line-height: 14.044px;
+    margin-bottom: 0;
+  }
+  .pain-solution {
+    font-size: 10px;
+    font-weight: 400;
+    color: var(--gray-900);
+    line-height: 14.044px;
+    margin-top: 4px;
+  }
+  .pain-solution b {
+    font-weight: 700;
+  }
+
+  /* GREY BLOCK */
+  .grey-block {
+    background: var(--gray-100);
+    width: 100%;
+    padding: 80px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+  .grey-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+  .subsection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+  .subsection-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--gray-900);
+    letter-spacing: -0.16px;
+    line-height: 16px;
+    text-align: center;
+    width: 352px;
+  }
+  .list-items {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 433px;
+  }
+  .list-item {
+    background: var(--white);
+    border-radius: 4px;
+    padding: 5px 10px;
+    font-size: 10px;
+    font-weight: 400;
+    color: var(--gray-900);
+    line-height: 14.044px;
+  }
+  .list-item b { font-weight: 700; }
+
+  /* TESTIMONIALS */
+  .testimonials-row {
+    display: flex;
+    gap: 40px;
+    width: 525px;
+    align-items: flex-start;
+  }
+  .testimonial-col {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .testimonial-icon {
+    background: var(--gray-100);
+    border-radius: 2.625px;
+    padding: 6px;
+    width: fit-content;
+    font-size: 12px;
+    color: var(--gray-900);
+    line-height: 12px;
+  }
+  .testimonial-name {
+    font-size: 10px;
+    font-weight: 400;
+    color: var(--gray-900);
+    line-height: 10px;
+  }
+  .testimonial-company {
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--gray-900);
+    line-height: 10px;
+    margin-top: -4px;
+  }
+  .testimonial-quote {
+    font-size: 10px;
+    font-weight: 400;
+    color: var(--gray-500);
+    line-height: 14.044px;
+  }
+
+  /* FOOTER */
+  .footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    width: 100%;
+  }
+  .footer-line {
+    width: 496px;
+    height: 1px;
+    background: var(--gray-100);
+    margin-bottom: 12px;
+  }
+  .footer-text {
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--gray-500);
+    text-align: center;
+    margin-top: 8px;
+  }
+</style>
+</head>
+<body>
+<div class="document">
+
+  <!-- HERO WRAPPER: contiene watermark + logo + hero para el solapado correcto -->
+  <div class="hero-wrapper">
+
+    <!-- WATERMARK — texto "Internal use" solapado sobre logo y H1 -->
+    <div class="watermark">Internal use</div>
+
+    <!-- HEADER LOGO — assets reales de Figma -->
+    <div class="logo">
+      <img class="logo-diamond" src="https://www.figma.com/api/mcp/asset/643cdf15-3efa-414d-a6a1-14156f92585b" alt="" />
+      <div class="logo-wordmark">
+        <img src="https://www.figma.com/api/mcp/asset/f461efb3-4547-44bf-9392-c34d5d346495" alt="holded" />
+      </div>
+    </div>
+
+    <!-- HERO -->
+    <div class="hero">
+      <div class="hero-titles">
+        <div class="hero-title">Toolkit<br>Servicios<br>Profesionales</div>
+        <div class="hero-subtitle">Claves rápidas para Ventas</div>
+      </div>
+      <p class="hero-desc">Guía rápida para abordar a clientes del sector de consultorías, arquitectura, legal e ingeniería.<br>Úsala para recordar los puntos clave y personaliza tu discurso según las necesidades específicas de cada cliente.</p>
+      <div class="hero-image">
+        <img
+          src="https://www.figma.com/api/mcp/asset/00c8494e-a6fc-4095-9822-a0ef26ee98ce"
+          alt="Servicios profesionales"
+        />
+      </div>
+    </div>
+
+  </div>
+
+  <!-- PAIN POINTS -->
+  <div class="section">
+    <div class="section-title">Problemas comunes<br>y soluciones de Holded</div>
+    <div class="pain-grid">
+      <div class="pain-row">
+        <div class="pain-card">
+          <div class="pain-problem">Es incómodo saltar entre herramientas.</div>
+          <div class="pain-solution">Con Holded puedes hacerlo todo desde la <b>misma plataforma</b> y centralizar facturación, contabilidad, gestión de proyectos y CRM.</div>
+        </div>
+        <div class="pain-card">
+          <div class="pain-problem">No tengo ni idea de cómo van mis cuentas hasta que me lo dice mi asesor.</div>
+          <div class="pain-solution"><b>Contabilidad</b> automatizada con acceso <b>en tiempo real</b> a métricas clave, manteniendo visibilidad y control mientras se sigue trabajando con asesorías.</div>
+        </div>
+      </div>
+      <div class="pain-row">
+        <div class="pain-card">
+          <div class="pain-problem">No puedo perder tiempo aprendiendo una herramienta complicada.</div>
+          <div class="pain-solution"><b>Onboarding sencillo</b> y ágil. Disponibilidad de recursos como <b>guías, tutoriales y chat de soporte.</b></div>
+        </div>
+        <div class="pain-card">
+          <div class="pain-problem">Gasto muchas horas a la semana haciendo tareas repetitivas a mano.</div>
+          <div class="pain-solution"><b>Plantillas personalizables de facturas, dashboard financiero y escáner de gastos</b> para agilizar el trabajo.</div>
+        </div>
+      </div>
+      <div class="pain-row">
+        <div class="pain-card full">
+          <div class="pain-problem">No sé qué proyectos me dan beneficios y cuáles no.</div>
+          <div class="pain-solution">Documentos de facturación asignados a proyectos para conocer la <b>rentabilidad de cada proyecto.</b></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- GREY BLOCK -->
+  <div class="grey-block">
+    <div class="grey-inner">
+
+      <!-- Mensajes clave -->
+      <div class="subsection">
+        <div class="section-title" style="width:316px;">Mensajes clave<br>para Ventas</div>
+        <div class="list-items">
+          <div class="list-item">Holded permite a los profesionales <b>centrarse en lo que realmente aporta valor</b>: ofrecer sus servicios con la mayor calidad posible.</div>
+          <div class="list-item">Ideal para emprendedores y pymes que buscan <b>crecer sin perder el control operativo.</b></div>
+          <div class="list-item">Mejora la <b>autonomía</b> operativa del equipo; tiene toda la información en tiempo real.</div>
+          <div class="list-item">Aumenta la <b>profesionalización</b> de la gestión diaria con herramientas intuitivas.</div>
+        </div>
+      </div>
+
+      <!-- Datos de impacto -->
+      <div class="subsection">
+        <div class="subsection-title">Datos de impacto</div>
+        <div class="list-items">
+          <div class="list-item">Reducción de hasta un <b>80%</b> en el tiempo dedicado a tareas administrativas y contables.</div>
+          <div class="list-item"><b>Mayor control y trazabilidad financiera</b> sin necesidad de conocimientos contables avanzados.</div>
+          <div class="list-item">Conciliación bancaria <b>100%</b> automatizada gracias a las reglas de conciliación.</div>
+        </div>
+      </div>
+
+      <!-- Notas para Ventas -->
+      <div class="subsection">
+        <div class="subsection-title">Notas para el equipo de Ventas</div>
+        <div class="list-items">
+          <div class="list-item">El <b>decision maker</b> es casi siempre el fundador o CEO.</div>
+          <div class="list-item">Enfócate en el <b>impacto inmediato</b>: ahorro de tiempo, automatización y visibilidad.</div>
+          <div class="list-item">Usa <b>testimonios como ancla</b> para personalizar el pitch.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- TESTIMONIALS -->
+  <div class="section">
+    <div class="section-title">Frases inspiradoras<br>de clientes satisfechos:</div>
+    <div class="testimonials-row">
+      <div class="testimonial-col">
+        <div class="testimonial-icon"><span class="fa-icon">&#xF24E;</span></div>
+        <div class="testimonial-name">Arturo,</div>
+        <div class="testimonial-company">Dexia Abogados</div>
+        <div class="testimonial-quote">"Ahora tenemos control financiero real y una imagen mucho más profesional."</div>
+      </div>
+      <div class="testimonial-col">
+        <div class="testimonial-icon"><span class="fa-icon">&#xF568;</span></div>
+        <div class="testimonial-name">Sergio,</div>
+        <div class="testimonial-company">Duart Vila Estudi</div>
+        <div class="testimonial-quote">"Ha profesionalizado la gestión y liberado al equipo técnico."</div>
+      </div>
+      <div class="testimonial-col">
+        <div class="testimonial-icon"><span class="fa-icon">&#xF201;</span></div>
+        <div class="testimonial-name">Silvia,</div>
+        <div class="testimonial-company">Oktics ATZ</div>
+        <div class="testimonial-quote">"Lo mejor es que nuestros clientes acceden a sus propios datos, sin que tengamos que enviar excels."</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="footer-line"></div>
+    <div class="logo">
+      <img class="logo-diamond" src="https://www.figma.com/api/mcp/asset/643cdf15-3efa-414d-a6a1-14156f92585b" alt="" />
+      <div class="logo-wordmark">
+        <img src="https://www.figma.com/api/mcp/asset/f461efb3-4547-44bf-9392-c34d5d346495" alt="holded" />
+      </div>
+    </div>
+    <div class="footer-text">⚠️ Documento de uso exclusivamente interno. No compartir con clientes.</div>
+  </div>
+
+</div>
+</body>
+</html>

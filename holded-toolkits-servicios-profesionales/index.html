@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Holded Toolkits — Servicios Profesionales</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Inter', sans-serif;
+    background: #F3F4F6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 40px 24px;
+  }
+  .container {
+    background: white;
+    border-radius: 12px;
+    padding: 48px;
+    max-width: 480px;
+    width: 100%;
+    text-align: center;
+  }
+  .logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3.359px;
+    margin-bottom: 32px;
+  }
+  .logo-diamond { width: 12.31px; height: 10.75px; }
+  .logo-wordmark { width: 49.523px; height: 10.88px; overflow: hidden; }
+  .logo-wordmark img { width: 100%; height: 100%; display: block; }
+  h1 {
+    font-size: 22px;
+    font-weight: 600;
+    color: #111827;
+    letter-spacing: -0.5px;
+    margin-bottom: 8px;
+  }
+  p {
+    font-size: 13px;
+    color: #6B7280;
+    margin-bottom: 36px;
+    line-height: 1.5;
+  }
+  .links {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  a {
+    display: block;
+    padding: 14px 20px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: opacity 0.15s;
+  }
+  a:hover { opacity: 0.85; }
+  .btn-interno {
+    background: #111827;
+    color: white;
+  }
+  .btn-externo {
+    background: #F3F4F6;
+    color: #111827;
+    border: 1px solid #E5E7EB;
+  }
+  .badge {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 600;
+    padding: 2px 7px;
+    border-radius: 3px;
+    margin-right: 8px;
+    vertical-align: middle;
+  }
+  .badge-interno { background: #374151; color: white; }
+  .badge-externo { background: #E5E7EB; color: #6B7280; }
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="logo">
+    <img class="logo-diamond" src="https://www.figma.com/api/mcp/asset/643cdf15-3efa-414d-a6a1-14156f92585b" alt="" />
+    <div class="logo-wordmark">
+      <img src="https://www.figma.com/api/mcp/asset/f461efb3-4547-44bf-9392-c34d5d346495" alt="holded" />
+    </div>
+  </div>
+  <h1>Toolkit Servicios Profesionales</h1>
+  <p>Selecciona la versión que necesitas</p>
+  <div class="links">
+    <a class="btn-interno" href="holded-servicios-profesionales-INTERNO.html">
+      <span class="badge badge-interno">INTERNO</span>
+      Toolkit para el equipo de Sales
+    </a>
+    <a class="btn-externo" href="holded-servicios-profesionales-EXTERNO.html">
+      <span class="badge badge-externo">EXTERNO</span>
+      Toolkit para compartir con clientes
+    </a>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Toolkit Servicios Profesionales — Externo</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  @font-face {
+    font-family: 'Font Awesome 7 Pro';
+    font-style: normal;
+    font-weight: 100;
+    src: url('Font_Awesome_7_Pro-Thin-100.otf') format('opentype');
+  }
+  @font-face {
+    font-family: 'Font Awesome 7 Pro';
+    font-style: normal;
+    font-weight: 300;
+    src: url('Font_Awesome_7_Pro-Light-300.otf') format('opentype');
+  }
+  @font-face {
+    font-family: 'Font Awesome 7 Pro';
+    font-style: normal;
+    font-weight: 400;
+    src: url('Font_Awesome_7_Pro-Regular-400.otf') format('opentype');
+  }
+  @font-face {
+    font-family: 'Font Awesome 7 Pro';
+    font-style: normal;
+    font-weight: 900;
+    src: url('Font_Awesome_7_Pro-Solid-900.otf') format('opentype');
+  }
+  .fa-icon {
+    font-family: 'Font Awesome 7 Pro';
+    font-weight: 900;
+    font-style: normal;
+    font-size: 12px;
+    color: #111827;
+    line-height: 12px;
+    display: block;
+  }
+</style>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --gray-900: #111827;
+    --gray-500: #6B7280;
+    --gray-400: #9CA3AF;
+    --gray-100: #F3F4F6;
+    --white: #FFFFFF;
+    --doc-width: 691px;
+  }
+
+  body {
+    background: #e5e7eb;
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    justify-content: center;
+    padding: 48px 24px;
+    min-height: 100vh;
+  }
+
+  .document {
+    width: var(--doc-width);
+    background: var(--white);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 70px;
+    padding: 30px 0;
+  }
+
+  /* LOGO */
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 3.359px;
+  }
+
+  /* HERO */
+  .hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    width: 100%;
+  }
+  .hero-titles {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+  .hero-title {
+    font-size: 60px;
+    font-weight: 600;
+    color: var(--gray-900);
+    letter-spacing: -3.3px;
+    text-align: center;
+    line-height: 0.85;
+  }
+  .hero-tagline {
+    font-size: 20px;
+    font-weight: 400;
+    color: var(--gray-400);
+    letter-spacing: -1.1px;
+    line-height: 0.85;
+    text-align: center;
+  }
+  .hero-desc {
+    font-size: 10px;
+    font-weight: 400;
+    color: var(--gray-900);
+    text-align: center;
+    width: 293px;
+    line-height: 12px;
+  }
+  .hero-image {
+    width: 479.83px;
+    height: 318px;
+    border-radius: 8px;
+    overflow: hidden;
+    flex-shrink: 0;
+    position: relative;
+  }
+  .hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 30%;
+    display: block;
+  }
+
+  /* SECTION */
+  .section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    width: 100%;
+  }
+  .section-title {
+    font-size: 40px;
+    font-weight: 600;
+    color: var(--gray-900);
+    letter-spacing: -2.2px;
+    line-height: 0.85;
+    text-align: center;
+  }
+
+  /* RETOS — numbered list */
+  .retos-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 513px;
+  }
+  .reto-item {
+    background: var(--gray-100);
+    border-radius: 4px;
+    padding: 10px 14px;
+    font-size: 10px;
+    font-weight: 400;
+    color: var(--gray-900);
+    line-height: 14.044px;
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+  }
+  .reto-num {
+    font-weight: 700;
+    color: var(--gray-400);
+    flex-shrink: 0;
+    min-width: 14px;
+  }
+
+  /* SOLUCIONES */
+  .soluciones-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 513px;
+  }
+  .solucion-card {
+    background: var(--gray-100);
+    border-radius: 4px;
+    padding: 12px 14px;
+  }
+  .solucion-title {
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--gray-900);
+    line-height: 14.044px;
+    margin-bottom: 3px;
+  }
+  .solucion-text {
+    font-size: 10px;
+    font-weight: 400;
+    color: var(--gray-500);
+    line-height: 14.044px;
+  }
+
+  /* FEATURES LIST */
+  .features-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 513px;
+  }
+  .feature-item {
+    background: var(--gray-100);
+    border-radius: 4px;
+    padding: 7px 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .feature-icon {
+    width: 21px;
+    height: 21px;
+    background: var(--white);
+    border-radius: 2.625px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 10px;
+  }
+  .feature-text {
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--gray-900);
+    line-height: 14.044px;
+  }
+  .feature-text span {
+    font-weight: 400;
+    color: var(--gray-500);
+  }
+
+  /* PASOS */
+  .pasos-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 513px;
+  }
+  .paso-card {
+    background: var(--gray-100);
+    border-radius: 4px;
+    padding: 14px;
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+  }
+  .paso-num {
+    width: 24px;
+    height: 24px;
+    background: var(--gray-900);
+    border-radius: 50%;
+    color: var(--white);
+    font-size: 10px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .paso-content {}
+  .paso-title {
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--gray-900);
+    line-height: 14.044px;
+    margin-bottom: 4px;
+  }
+  .paso-text {
+    font-size: 10px;
+    font-weight: 400;
+    color: var(--gray-500);
+    line-height: 14.044px;
+  }
+  .paso-checks {
+    margin-top: 6px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .paso-check {
+    font-size: 10px;
+    color: var(--gray-500);
+    line-height: 14.044px;
+  }
+
+  /* ALIADO */
+  .aliado-card {
+    background: var(--gray-100);
+    border-radius: 4px;
+    padding: 14px;
+    width: 513px;
+  }
+  .aliado-title {
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--gray-900);
+    line-height: 14.044px;
+    margin-bottom: 8px;
+  }
+  .aliado-checks {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .aliado-check {
+    font-size: 10px;
+    font-weight: 400;
+    color: var(--gray-500);
+    line-height: 14.044px;
+  }
+
+  /* CTA */
+  .cta-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    width: 100%;
+    padding: 0 89px;
+  }
+  .cta-title {
+    font-size: 40px;
+    font-weight: 600;
+    color: var(--gray-900);
+    letter-spacing: -2.2px;
+    line-height: 0.85;
+    text-align: center;
+  }
+  .cta-text {
+    font-size: 10px;
+    font-weight: 400;
+    color: var(--gray-500);
+    line-height: 14.044px;
+    text-align: center;
+    width: 433px;
+  }
+  .cta-text b { font-weight: 700; color: var(--gray-900); }
+  .cta-text a { color: var(--gray-900); font-weight: 600; }
+  .cta-btn {
+    background: var(--gray-900);
+    color: var(--white);
+    border-radius: 4px;
+    padding: 8px 20px;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: -0.1px;
+    cursor: pointer;
+    border: none;
+    margin-top: 4px;
+  }
+
+  /* TESTIMONIALS */
+  .testimonials-row {
+    display: flex;
+    gap: 40px;
+    width: 525px;
+    align-items: flex-start;
+  }
+  .testimonial-col {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .testimonial-icon {
+    background: var(--gray-100);
+    border-radius: 2.625px;
+    padding: 6px;
+    width: fit-content;
+    font-size: 12px;
+    line-height: 12px;
+  }
+  .testimonial-name {
+    font-size: 10px;
+    font-weight: 400;
+    color: var(--gray-900);
+    line-height: 10px;
+  }
+  .testimonial-company {
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--gray-900);
+    line-height: 10px;
+    margin-top: -4px;
+  }
+  .testimonial-quote {
+    font-size: 10px;
+    font-weight: 400;
+    color: var(--gray-500);
+    line-height: 14.044px;
+  }
+
+  /* LOGO */
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 3.359px;
+  }
+  .logo-diamond {
+    width: 12.31px;
+    height: 10.75px;
+    flex-shrink: 0;
+    display: block;
+  }
+  .logo-wordmark {
+    width: 49.523px;
+    height: 10.88px;
+    flex-shrink: 0;
+    display: block;
+    overflow: hidden;
+  }
+  .logo-wordmark img {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    width: 100%;
+  }
+  .footer-line {
+    width: 496px;
+    height: 1px;
+    background: var(--gray-100);
+    margin-bottom: 12px;
+  }
+  .footer-text {
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--gray-500);
+    text-align: center;
+    margin-top: 8px;
+  }
+</style>
+</head>
+<body>
+<div class="document">
+
+  <!-- HEADER LOGO -->
+  <div class="logo">
+    <img class="logo-diamond" src="https://www.figma.com/api/mcp/asset/643cdf15-3efa-414d-a6a1-14156f92585b" alt="" />
+    <div class="logo-wordmark">
+      <img src="https://www.figma.com/api/mcp/asset/f461efb3-4547-44bf-9392-c34d5d346495" alt="holded" />
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-titles">
+      <div class="hero-title">Servicios<br>Profesionales<br>y Holded</div>
+      <div class="hero-tagline">Trabaja mejor, gestiona sin complicaciones.</div>
+    </div>
+    <p class="hero-desc">Holded, la herramienta ideal para empresas de servicios profesionales, con tu partner experto.</p>
+    <div class="hero-image">
+      <img
+        src="https://www.figma.com/api/mcp/asset/00c8494e-a6fc-4095-9822-a0ef26ee98ce"
+        alt="Servicios profesionales"
+      />
+    </div>
+  </div>
+
+  <!-- RETOS -->
+  <div class="section">
+    <div class="section-title">¿Te suenan estos retos?</div>
+    <div class="retos-list">
+      <div class="reto-item"><span class="reto-num">1.</span>Falta de visibilidad financiera en tiempo real.</div>
+      <div class="reto-item"><span class="reto-num">2.</span>Pérdida de tiempo con Excel, Word y herramientas no conectadas.</div>
+      <div class="reto-item"><span class="reto-num">3.</span>Contabilidad 100% externalizada que limita la autonomía.</div>
+      <div class="reto-item"><span class="reto-num">4.</span>No hay un sistema integrado para ventas, contabilidad y proyectos.</div>
+      <div class="reto-item"><span class="reto-num">5.</span>Equipos técnicos saturados con tareas administrativas.</div>
+    </div>
+  </div>
+
+  <!-- SOLUCIONES -->
+  <div class="section">
+    <div class="section-title">¿Por qué Holded<br>es tu solución?</div>
+    <div class="soluciones-grid">
+      <div class="solucion-card">
+        <div class="solucion-title">Facturar y mucho más</div>
+        <div class="solucion-text">Holded integra la facturación, la gestión de tus contactos, RRHH y mucho más.</div>
+      </div>
+      <div class="solucion-card">
+        <div class="solucion-title">Una sola herramienta</div>
+        <div class="solucion-text">Centraliza facturación, tesorería, contabilidad, CRM y más en una sola plataforma, sin depender de múltiples herramientas.</div>
+      </div>
+      <div class="solucion-card">
+        <div class="solucion-title">Visibilidad al momento</div>
+        <div class="solucion-text">Accede a informes visuales con los datos clave para la toma de decisiones: balances, ingresos, gastos, rentabilidad por proyectos y mucho más.</div>
+      </div>
+      <div class="solucion-card">
+        <div class="solucion-title">Ahorra tiempo</div>
+        <div class="solucion-text">Automatiza tareas repetitivas, escanea los gastos de forma automática, concilia cobros y gastos en un clic y gana autonomía.</div>
+      </div>
+      <div class="solucion-card">
+        <div class="solucion-title">Empieza fácil</div>
+        <div class="solucion-text">Importación sencilla de datos, recursos de ayuda (artículos, videotutoriales, etc.) y soporte personalizado de tu partner experto.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MÁS CON HOLDED -->
+  <div class="section">
+    <div class="section-title">¿Algo más? Sí,<br>siempre más con Holded</div>
+    <div class="features-list">
+      <div class="feature-item">
+        <div class="feature-icon">✅</div>
+        <div class="feature-text">Mejora continua del producto <span>(con feedback real de usuarios).</span></div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">✅</div>
+        <div class="feature-text">Portal de asesorías <span>para contabilidad colaborativa y fluida.</span></div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">✅</div>
+        <div class="feature-text">Cumplimiento normativo <span>y actualizaciones legales al día.</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PASOS DEL ÉXITO -->
+  <div class="section">
+    <div class="section-title">Los pasos del éxito</div>
+    <div class="pasos-container">
+      <div class="paso-card">
+        <div class="paso-num">1</div>
+        <div class="paso-content">
+          <div class="paso-title">Diagnóstico inicial</div>
+          <div class="paso-text">Reunión para entender tu operativa y necesidades específicas.</div>
+        </div>
+      </div>
+      <div class="paso-card">
+        <div class="paso-num">2</div>
+        <div class="paso-content">
+          <div class="paso-title">Demostración adaptada</div>
+          <div class="paso-text">Te enseñamos cómo Holded se adapta a la realidad de tu negocio:</div>
+          <div class="paso-checks">
+            <div class="paso-check">✅ Plataforma todo en uno</div>
+            <div class="paso-check">✅ Control financiero en tiempo real</div>
+            <div class="paso-check">✅ Automatización de tareas</div>
+          </div>
+        </div>
+      </div>
+      <div class="paso-card">
+        <div class="paso-num">3</div>
+        <div class="paso-content">
+          <div class="paso-title">Propuesta personalizada</div>
+          <div class="paso-text">Plan claro de implementación acompañado por tu Partner experto en todo momento.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ALIADO -->
+  <div class="section">
+    <div class="section-title">¿Por qué somos<br>tu mejor aliado?</div>
+    <div class="aliado-card">
+      <div class="aliado-title">Con tu Partner experto, tienes a un aliado en el día a día. Directamente en la plataforma tienes:</div>
+      <div class="aliado-checks">
+        <div class="aliado-check">✔️ Mejora inmediata en gestión y control</div>
+        <div class="aliado-check">✔️ Implementación rápida y sin fricciones</div>
+        <div class="aliado-check">✔️ Resultados visibles desde el primer mes</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-block">
+    <div class="cta-title">¿Empezamos?</div>
+    <div class="cta-text">Ve a <a href="https://holded.com/es">holded.com/es</a> y crea tu cuenta de prueba gratis durante 14 días. Sigue "los pasos del éxito" y no olvides que puedes apoyarte en tu Partner y en el equipo de Holded. <b>Tu éxito es nuestro objetivo.</b></div>
+    <button class="cta-btn">Crear cuenta gratis →</button>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="footer-line"></div>
+    <div class="logo">
+      <img class="logo-diamond" src="https://www.figma.com/api/mcp/asset/643cdf15-3efa-414d-a6a1-14156f92585b" alt="" />
+      <div class="logo-wordmark">
+        <img src="https://www.figma.com/api/mcp/asset/f461efb3-4547-44bf-9392-c34d5d346495" alt="holded" />
+      </div>
+    </div>
+    <div class="footer-text">© Holded · Documento para uso externo</div>
+  </div>
+
+</div>
+</body>
+</html>
