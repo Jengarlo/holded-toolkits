@@ -192,9 +192,18 @@ FOOTER
 
 ## Cómo construir un nuevo toolkit desde un Word/Google Doc
 
+> ⚠️ **REGLA CRÍTICA — Fidelidad al documento fuente**
+>
+> **Lee el documento fuente completo de principio a fin antes de escribir una sola línea de HTML.**
+> Cada sección, cada ítem y cada dato del toolkit debe tener su origen exacto en el documento.
+> **NUNCA asumas que una sección existe por analogía con otro sector.**
+> Si una sección no aparece en el documento (ej. "Datos de impacto"), **no la incluyas**.
+> Si una sección tiene N ítems en el documento, incluye exactamente N, ni más ni menos.
+> En caso de duda, vuelve al documento y verifica.
+
 ### Paso 1 — Leer el documento fuente
 
-Lee el documento Word o Google Doc del sector. Identifica y extrae:
+Lee el documento Word o Google Doc del sector **completo** antes de empezar. Identifica y extrae únicamente lo que está presente en el documento:
 
 **Para el EXTERNO:**
 - Sector name (para el `<title>` y el hero)
@@ -208,11 +217,11 @@ Lee el documento Word o Google Doc del sector. Identifica y extrae:
 - Texto CTA personalizado
 
 **Para el INTERNO:**
-- N pain points del sector en primera persona (pueden ser 5, 7 u otro número — usar todos los que haya)
+- N pain points del sector en primera persona (pueden ser 5, 7 u otro número — **usar TODOS los que haya en el documento, sin omitir ninguno**)
 - Solución de Holded para cada pain point (con palabras clave en **negrita**)
 - ⚠️ **Bloque opcional "Funcionalidades clave"**: comprobar si el documento lo incluye (lista con ✅ y descripción). Si existe, añadirlo entre los pain points y el bloque gris. Si no existe, omitirlo. Ejemplo: Distribución ✅ / Retail ❌
-- 4 mensajes clave para el equipo de ventas
-- 3 datos de impacto
+- 4 mensajes clave para el equipo de ventas _(solo si el documento los incluye)_
+- ⚠️ **"Datos de impacto"**: solo incluir esta subsección si el documento la tiene explícitamente. Si no aparece, omitirla.
 - 3 notas para ventas (decision maker, precio/argumento, link caso de éxito)
 - 3 testimonials: nombre + empresa + frase + icono representativo
 
