@@ -150,6 +150,41 @@ https://github.com/Jengarlo/holded-toolkits/blob/main/holded-toolkits-[sector]/h
 
 ---
 
+### Paso 9 — Exporta los documentos a PDF
+
+Los documentos se envían al equipo y a clientes en formato PDF. Para exportarlos correctamente:
+
+> ⚠️ **Importante**: Usa siempre **Google Chrome** para generar los PDFs. Otros navegadores (Safari, Firefox) pueden alterar el diseño o los iconos.
+
+1. Asegúrate de tener la carpeta del sector en tu ordenador con los dos `.html` y los 4 archivos `.otf` dentro (si no, repasa el Paso 5).
+
+2. Abre el archivo `holded-[sector]-EXTERNO.html` con Google Chrome (doble clic sobre el archivo).
+
+3. Cuando el documento se cargue correctamente en el navegador, abre el menú de impresión:
+   - En Mac: `Cmd + P`
+   - En Windows: `Ctrl + P`
+
+4. En la ventana de impresión, ajusta estas opciones:
+   - **Destino**: Guardar como PDF
+   - **Diseño**: Vertical (Portrait)
+   - **Márgenes**: Ninguno (None)
+   - **Escala**: 100%
+   - Activa la opción **Gráficos de fondo** (Background graphics) — imprescindible para que se vean los colores y fondos
+
+5. Haz clic en **Guardar** y nombra el archivo:
+   ```
+   Holded-Toolkit-[Sector]-EXTERNO.pdf
+   ```
+
+6. Repite los pasos 2 a 5 con el archivo `holded-[sector]-INTERNO.html` y guárdalo como:
+   ```
+   Holded-Toolkit-[Sector]-INTERNO.pdf
+   ```
+
+7. Ya tienes los dos PDFs listos para enviar al equipo.
+
+---
+
 ## Requisitos locales (Font Awesome)
 
 Los cuatro archivos `.otf` de Font Awesome 7 Pro no están incluidos en este repositorio por licencia. Deben copiarse manualmente en la carpeta de cada sector al trabajar en local:
