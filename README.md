@@ -153,7 +153,7 @@ https://github.com/Jengarlo/holded-toolkits/blob/main/holded-toolkits-[sector]/h
 
 ### Paso 9 — Exporta los documentos a PDF
 
-Los documentos se envían al equipo y a clientes en formato PDF. Para exportarlos correctamente:
+Los documentos se envían al equipo y a clientes en formato PDF. Están diseñados para exportarse como **una sola página continua** (sin cortes de página).
 
 > ⚠️ **Importante**: Usa siempre **Google Chrome** para generar los PDFs. Otros navegadores (Safari, Firefox) pueden alterar el diseño o los iconos.
 
@@ -167,10 +167,9 @@ Los documentos se envían al equipo y a clientes en formato PDF. Para exportarlo
 
 4. En la ventana de impresión, ajusta estas opciones:
    - **Destino**: Guardar como PDF
-   - **Diseño**: Vertical (Portrait)
    - **Márgenes**: Ninguno (None)
-   - **Escala**: 100%
    - Activa la opción **Gráficos de fondo** (Background graphics) — imprescindible para que se vean los colores y fondos
+   - El **tamaño de papel** se configura automáticamente desde el propio HTML para generar una página única continua — no lo cambies
 
 5. Haz clic en **Guardar** y nombra el archivo:
    ```
@@ -182,7 +181,7 @@ Los documentos se envían al equipo y a clientes en formato PDF. Para exportarlo
    Holded-Toolkit-[Sector]-INTERNO.pdf
    ```
 
-7. Ya tienes los dos PDFs listos para enviar al equipo.
+7. Ya tienes los dos PDFs listos para enviar al equipo — cada uno será una sola página larga, sin cortes.
 
 ---
 

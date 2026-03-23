@@ -43,6 +43,19 @@ Ambos son **HTML estáticos, print-ready, de 691px de ancho**, con diseño syste
 --doc-width: 691px;
 ```
 
+### Regla @page — PDF de página única continua
+
+Incluir siempre este bloque CSS justo después del cierre `}` del bloque `:root`, en todos los documentos (EXTERNO e INTERNO):
+
+```css
+@page {
+  size: 691px 5000px;
+  margin: 0;
+}
+```
+
+Esto hace que Chrome genere un PDF de una sola página larga al imprimir, sin cortes de página.
+
 ### Clase de iconos FA7
 
 ```css
