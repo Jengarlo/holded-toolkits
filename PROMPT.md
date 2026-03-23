@@ -153,6 +153,16 @@ SECCIÓN: Problemas comunes y soluciones de Holded
     ├── .pain-problem (texto en ROJO #FF5454, font-weight 600)
     └── .pain-solution (texto en gray-900, con <b> para destacar soluciones)
 
+⚠️ BLOQUE OPCIONAL: Funcionalidades clave
+(Solo si el documento fuente lo incluye — verificar siempre)
+└── SECCIÓN: "Funcionalidades clave para las empresas de [sector]:"
+    ├── Título: section-title (40px, centered, max-width 503px)
+    └── Lista .funcionalidades-list (513px, gap 10px)
+        └── Cada item .funcionalidades-item:
+            ├── .funcionalidades-icon — caja blanca 21×21px, border-radius 2.625px, emoji ✅
+            └── .funcionalidades-text — <b>Título:</b> descripción (10px, gray-900)
+    Ejemplo: Distribución ✅ tiene este bloque / Retail ❌ no lo tiene
+
 BLOQUE GRIS — .grey-block
 └── .grey-inner
     ├── Mensajes clave para Ventas
@@ -198,12 +208,13 @@ Lee el documento Word o Google Doc del sector. Identifica y extrae:
 - Texto CTA personalizado
 
 **Para el INTERNO:**
-- 5 pain points del sector (en primera persona del cliente)
+- N pain points del sector en primera persona (pueden ser 5, 7 u otro número — usar todos los que haya)
 - Solución de Holded para cada pain point (con palabras clave en **negrita**)
+- ⚠️ **Bloque opcional "Funcionalidades clave"**: comprobar si el documento lo incluye (lista con ✅ y descripción). Si existe, añadirlo entre los pain points y el bloque gris. Si no existe, omitirlo. Ejemplo: Distribución ✅ / Retail ❌
 - 4 mensajes clave para el equipo de ventas
 - 3 datos de impacto
 - 3 notas para ventas (decision maker, precio/argumento, link caso de éxito)
-- 3 testimonials: empresa + frase + icono representativo
+- 3 testimonials: nombre + empresa + frase + icono representativo
 
 ### Paso 2 — Seleccionar imagen hero
 
