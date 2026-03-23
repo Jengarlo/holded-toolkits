@@ -8,6 +8,7 @@ One-pagers HTML (EXTERNO + INTERNO) para el equipo de Sales de Holded, por secto
 |--------|---------|---------|
 | Servicios Profesionales | ✅ | ✅ |
 | Retail | ✅ | ✅ |
+| Distribución al por Mayor | ✅ | ✅ |
 
 ## Cómo generar un nuevo toolkit
 

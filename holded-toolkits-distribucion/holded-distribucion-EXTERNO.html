@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Toolkit Distribución al por Mayor — Externo</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  @font-face {
+    font-family: 'Font Awesome 7 Pro';
+    font-style: normal;
+    font-weight: 100;
+    src: url('Font_Awesome_7_Pro-Thin-100.otf') format('opentype');
+  }
+  @font-face {
+    font-family: 'Font Awesome 7 Pro';
+    font-style: normal;
+    font-weight: 300;
+    src: url('Font_Awesome_7_Pro-Light-300.otf') format('opentype');
+  }
+  @font-face {
+    font-family: 'Font Awesome 7 Pro';
+    font-style: normal;
+    font-weight: 400;
+    src: url('Font_Awesome_7_Pro-Regular-400.otf') format('opentype');
+  }
+  @font-face {
+    font-family: 'Font Awesome 7 Pro';
+    font-style: normal;
+    font-weight: 900;
+    src: url('Font_Awesome_7_Pro-Solid-900.otf') format('opentype');
+  }
+  .fa-icon {
+    font-family: 'Font Awesome 7 Pro';
+    font-weight: 900;
+    font-style: normal;
+    font-size: 12px;
+    color: #111827;
+    line-height: 12px;
+    display: block;
+  }
+</style>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --gray-900: #111827;
+    --gray-500: #6B7280;
+    --gray-400: #9CA3AF;
+    --gray-100: #F3F4F6;
+    --white: #FFFFFF;
+    --doc-width: 691px;
+  }
+
+  body {
+    background: #e5e7eb;
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    justify-content: center;
+    padding: 48px 24px;
+    min-height: 100vh;
+  }
+
+  .document {
+    width: var(--doc-width);
+    background: var(--white);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 70px;
+    padding: 30px 0;
+  }
+
+  /* LOGO */
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 3.359px;
+  }
+
+  /* HERO */
+  .hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    width: 100%;
+  }
+  .hero-titles {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+  .hero-title {
+    font-size: 60px;
+    font-weight: 600;
+    color: var(--gray-900);
+    letter-spacing: -3.3px;
+    text-align: center;
+    line-height: 0.85;
+  }
+  .hero-tagline {
+    font-size: 20px;
+    font-weight: 400;
+    color: var(--gray-400);
+    letter-spacing: -1.1px;
+    line-height: 0.85;
+    text-align: center;
+  }
+  .hero-desc {
+    font-size: 10px;
+    font-weight: 400;
+    color: var(--gray-900);
+    text-align: center;
+    width: 293px;
+    line-height: 12px;
+  }
+  .hero-image {
+    width: 330px;
+    height: 318px;
+    border-radius: 8px;
+    overflow: hidden;
+    flex-shrink: 0;
+    position: relative;
+  }
+  .hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 40%;
+    display: block;
+  }
+
+  /* SECTION */
+  .section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    width: 100%;
+  }
+  .section-title {
+    font-size: 40px;
+    font-weight: 600;
+    color: var(--gray-900);
+    letter-spacing: -2.2px;
+    line-height: 0.85;
+    text-align: center;
+  }
+
+  /* RETOS — numbered list */
+  .retos-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 513px;
+  }
+  .reto-item {
+    background: var(--gray-100);
+    border-radius: 4px;
+    padding: 10px 14px;
+    font-size: 10px;
+    font-weight: 400;
+    color: var(--gray-900);
+    line-height: 14.044px;
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+  }
+  .reto-num {
+    font-weight: 600;
+    color: var(--white);
+    background: var(--gray-900);
+    border-radius: 2.625px;
+    flex-shrink: 0;
+    width: 16px;
+    height: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    line-height: 10px;
+  }
+
+  /* GREY BLOCK WRAPPER */
+  .grey-block {
+    background: #F3F4F6;
+    width: 100%;
+    padding: 80px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+
+  /* SOLUCIONES */
+  .soluciones-intro {
+    font-size: 10px;
+    font-weight: 400;
+    color: var(--gray-900);
+    text-align: center;
+    line-height: 12px;
+    width: 433px;
+  }
+  .soluciones-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 433px;
+  }
+  .soluciones-row {
+    display: flex;
+    gap: 10px;
+  }
+  .solucion-card {
+    background: var(--white);
+    border-radius: 4px;
+    padding: 10px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .solucion-card.full {
+    flex: unset;
+    width: 100%;
+  }
+  .solucion-title {
+    display: inline-flex;
+    align-items: center;
+    background: var(--gray-900);
+    color: var(--white);
+    font-size: 10px;
+    font-weight: 600;
+    line-height: 14.044px;
+    padding: 2px 7px;
+    border-radius: 3px;
+    white-space: nowrap;
+    align-self: flex-start;
+  }
+  .solucion-text {
+    font-size: 10px;
+    font-weight: 400;
+    color: var(--gray-500);
+    line-height: 14.044px;
+  }
+
+  /* FEATURES LIST */
+  .features-subtitle {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--gray-900);
+    letter-spacing: -0.16px;
+    line-height: 16px;
+    text-align: center;
+    width: 352px;
+  }
+  .features-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 433px;
+  }
+  .feature-item {
+    background: var(--white);
+    border-radius: 4px;
+    padding: 5px 10px;
+    display: flex;
+    align-items: flex-start;
+  }
+  .feature-item ul {
+    margin: 0;
+    padding-left: 15px;
+    font-size: 10px;
+    font-weight: 400;
+    color: var(--gray-900);
+    line-height: 14.044px;
+    list-style: disc;
+  }
+
+  /* PASOS */
+  .pasos-subtitle {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--gray-900);
+    letter-spacing: -0.16px;
+    line-height: 16px;
+    text-align: center;
+    width: 352px;
+  }
+  .pasos-progress {
+    background: var(--gray-100);
+    border-radius: 4px;
+    padding: 7px 0;
+    width: 433px;
+  }
+  .pasos-progress-bar {
+    background: #111827;
+    border-radius: 6.692px;
+    height: 63px;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+  }
+  .pasos-progress-seg {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 10px;
+    position: relative;
+  }
+  .pasos-progress-seg.s1 { width: 27%; background: #111827; }
+  .pasos-progress-seg.s2 { width: 46%; background: #374151; }
+  .pasos-progress-seg.s3 { width: 27%; background: #9CA3AF; }
+  .pasos-progress-num {
+    font-size: 7.76px;
+    font-weight: 700;
+    color: #FF5454;
+    line-height: 9.76px;
+    letter-spacing: -0.155px;
+  }
+  .pasos-progress-text {
+    font-size: 8.365px;
+    font-weight: 500;
+    color: white;
+    line-height: 8.365px;
+    letter-spacing: -0.167px;
+    margin-top: 2px;
+  }
+  .pasos-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 433px;
+  }
+  .paso-row {
+    display: flex;
+    gap: 10px;
+    align-items: stretch;
+  }
+  .paso-left {
+    flex: 1;
+    padding: 7px 10px;
+    border-radius: 4px;
+    font-size: 10px;
+    font-weight: 700;
+    color: white;
+    line-height: 14.044px;
+  }
+  .paso-left.s1 { background: #111827; }
+  .paso-left.s2 { background: #4B5563; }
+  .paso-left.s3 { background: #9CA3AF; }
+  .paso-left-sub {
+    font-weight: 400;
+    color: rgba(255,255,255,0.6);
+    line-height: 14.044px;
+  }
+  .paso-left.s2 .paso-left-sub { color: #9CA3AF; }
+  .paso-right {
+    flex: 1;
+    background: white;
+    border-radius: 4px;
+    padding: 7px 10px;
+    font-size: 10px;
+    font-weight: 400;
+    color: var(--gray-500);
+    line-height: 14.044px;
+  }
+  .paso-right ul {
+    padding-left: 15px;
+    list-style: disc;
+    margin: 0;
+  }
+  .paso-right p { margin: 0; }
+
+  /* ALIADO */
+  .aliado-intro {
+    background: var(--gray-100);
+    border-radius: 4px;
+    padding: 7px 10px;
+    width: 371px;
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--gray-900);
+    line-height: 14.044px;
+    text-align: center;
+  }
+  .aliado-items {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+  }
+  .aliado-item {
+    background: var(--gray-100);
+    border-radius: 4px;
+    padding: 7px 10px;
+    width: 282px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+  .aliado-num {
+    background: var(--gray-900);
+    border-radius: 2.625px;
+    width: 21px;
+    height: 21px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--white);
+    line-height: 10px;
+  }
+  .aliado-item-text {
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--gray-900);
+    line-height: 14.044px;
+    flex: 1;
+  }
+
+  /* CTA */
+  .cta-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    width: 100%;
+    padding: 40px 0;
+    background: var(--gray-100);
+  }
+  .cta-title {
+    font-size: 40px;
+    font-weight: 600;
+    color: var(--gray-900);
+    letter-spacing: -2.2px;
+    line-height: 0.85;
+    text-align: center;
+  }
+  .cta-text {
+    font-size: 10px;
+    font-weight: 400;
+    color: var(--gray-900);
+    line-height: 12px;
+    text-align: center;
+    width: 353px;
+  }
+  .cta-text b { font-weight: 700; }
+  .cta-text a { color: var(--gray-900); text-decoration: underline; }
+  .cta-subtitle {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--gray-900);
+    letter-spacing: -0.49px;
+    line-height: 1;
+    text-align: center;
+    width: 289px;
+  }
+  .cta-btn {
+    background: var(--gray-900);
+    color: var(--white);
+    border-radius: 4px;
+    padding: 8px 20px;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: -0.1px;
+    cursor: pointer;
+    border: none;
+  }
+
+  /* LOGO */
+  .logo-diamond {
+    width: 12.31px;
+    height: 10.75px;
+    flex-shrink: 0;
+    display: block;
+  }
+  .logo-wordmark {
+    width: 49.523px;
+    height: 10.88px;
+    flex-shrink: 0;
+    display: block;
+    overflow: hidden;
+  }
+  .logo-wordmark img {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+  .footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    width: 100%;
+  }
+  .footer-line {
+    width: 496px;
+    height: 1px;
+    background: var(--gray-100);
+    margin: 20px 0 12px;
+  }
+  .footer-text {
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--gray-500);
+    text-align: center;
+    margin-top: 8px;
+  }
+</style>
+</head>
+<body>
+<div class="document">
+
+  <!-- HEADER LOGO -->
+  <div class="logo">
+    <img class="logo-diamond" src="https://www.figma.com/api/mcp/asset/643cdf15-3efa-414d-a6a1-14156f92585b" alt="" />
+    <div class="logo-wordmark">
+      <img src="https://www.figma.com/api/mcp/asset/f461efb3-4547-44bf-9392-c34d5d346495" alt="holded" />
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-titles">
+      <div class="hero-title">Distribución<br>al por mayor</div>
+      <div class="hero-tagline">Trabajar mejor, trabajar juntos.</div>
+    </div>
+    <p class="hero-desc">Holded, la herramienta ideal para empresas de distribución, con tu partner experto.</p>
+    <div class="hero-image">
+      <img
+        src="https://images.unsplash.com/photo-1553413077-190dd305871c?w=660&q=80"
+        alt="Distribución al por mayor"
+      />
+    </div>
+  </div>
+
+  <!-- RETOS -->
+  <div class="section">
+    <div class="section-title">¿Te suenan estos retos?</div>
+    <div class="retos-list">
+      <div class="reto-item"><span class="reto-num">1</span>¿Cómo saber si un producto es rentable?</div>
+      <div class="reto-item"><span class="reto-num">2</span>¿Cómo se puede ver cuál es el producto que más margen de beneficio da?</div>
+      <div class="reto-item"><span class="reto-num">3</span>La facturación de la empresa está desconectada del sistema de gestión de inventario.</div>
+      <div class="reto-item"><span class="reto-num">4</span>Es tedioso hacer el inventario en hojas de cálculo y de forma manual.</div>
+      <div class="reto-item"><span class="reto-num">5</span>Con la gestión del día a día, la contabilidad se deja para final de mes o para cierres.</div>
+    </div>
+  </div>
+
+  <!-- GREY BLOCK: Soluciones + Algo más + Pasos -->
+  <div class="grey-block">
+
+    <!-- SOLUCIONES -->
+    <div class="section">
+      <div class="section-title">¿Por qué Holded<br>es tu solución?</div>
+      <p class="soluciones-intro">Como empresa de distribución al por mayor necesitas control total de tu operativa, clientes e inventario. Con Holded podrás:</p>
+      <div class="soluciones-grid">
+        <div class="soluciones-row">
+          <div class="solucion-card">
+            <div class="solucion-title">Facturación y mucho más</div>
+            <div class="solucion-text">Solución 100% integral, digital y en la nube. Accede a toda la gestión desde cualquier lugar, en cualquier momento.</div>
+          </div>
+          <div class="solucion-card">
+            <div class="solucion-title">Automatización inteligente</div>
+            <div class="solucion-text">Reduce el tiempo en tareas manuales, tanto en facturación como en la gestión de inventario y pedidos.</div>
+          </div>
+        </div>
+        <div class="soluciones-row">
+          <div class="solucion-card full">
+            <div class="solucion-title">Mejora la gestión de tus clientes</div>
+            <div class="solucion-text">Facilita la comunicación B2B y el acceso a documentos de clientes y proveedores gracias al Portal del Cliente. Centraliza pedidos, albaranes y facturas en un único lugar.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MÁS CON HOLDED -->
+    <div class="section">
+      <div class="features-subtitle">¿Algo más? Sí, siempre más con Holded</div>
+      <div class="features-list">
+        <div class="feature-item">
+          <ul><li>Interfaz intuitiva para que todo tu equipo la use desde el primer día.</li></ul>
+        </div>
+        <div class="feature-item">
+          <ul><li>Integraciones con la API y con herramientas clave: PayPal, Stripe, Google Sheets, A3 y muchas más.</li></ul>
+        </div>
+        <div class="feature-item">
+          <ul><li>Conexión directa con tu partner de Holded para una implementación sin fricciones.</li></ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- PASOS DEL ÉXITO -->
+    <div class="section">
+      <div class="pasos-subtitle">Los pasos del éxito</div>
+      <div class="pasos-progress">
+        <div class="pasos-progress-bar">
+          <div class="pasos-progress-seg s1">
+            <div class="pasos-progress-num">1.</div>
+            <div class="pasos-progress-text">¿Qué procesos quieres hacer en Holded?</div>
+          </div>
+          <div class="pasos-progress-seg s2">
+            <div class="pasos-progress-num">2.</div>
+            <div class="pasos-progress-text">Haz una demo y confirma tus necesidades. ¿Qué plan tienes que seguir?</div>
+          </div>
+          <div class="pasos-progress-seg s3">
+            <div class="pasos-progress-num">3.</div>
+            <div class="pasos-progress-text">Propuesta Personalizada</div>
+          </div>
+        </div>
+      </div>
+      <div class="pasos-list">
+        <div class="paso-row">
+          <div class="paso-left s1"><ol start="1" style="padding-left:15px;margin:0;"><li>Diagnóstico inicial</li></ol></div>
+          <div class="paso-right"><ul><li>Identificamos tus necesidades con una reunión personalizada.</li></ul></div>
+        </div>
+        <div class="paso-row">
+          <div class="paso-left s2">
+            <ol start="2" style="padding-left:15px;margin:0;">
+              <li>Demostración adaptada<br><span class="paso-left-sub">Te mostramos cómo Holded resuelve tus problemas:</span></li>
+            </ol>
+          </div>
+          <div class="paso-right">
+            <ul style="margin-bottom:4px;"><li>Te enseñamos cómo Holded se adapta a la realidad de tu negocio:</li></ul>
+            <p>&#x2713;&nbsp; Centralizando la gestión en una plataforma todo en uno</p>
+            <p>&#x2713;&nbsp; Proporcionando datos financieros en tiempo real</p>
+            <p>&#x2713;&nbsp; Automatizando procesos clave para ahorrar tiempo y reducir errores</p>
+          </div>
+        </div>
+        <div class="paso-row">
+          <div class="paso-left s3">
+            <ol start="3" style="padding-left:15px;margin:0;">
+              <li>Propuesta personalizada:<br><span class="paso-left-sub">Te entregamos un plan claro que incluye:</span></li>
+            </ol>
+          </div>
+          <div class="paso-right"><ul><li>Plan claro de implementación acompañado por tu Partner experto en todo momento.</li></ul></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ALIADO -->
+  <div class="section">
+    <div class="section-title">¿Por qué somos<br>tu mejor aliado?</div>
+    <div class="aliado-intro">Con tu Partner experto, tienes una alianza en el día a día que además te ayudará con Holded. Pero directamente en la plataforma tienes:</div>
+    <div class="aliado-items">
+      <div class="aliado-item">
+        <div class="aliado-num">1</div>
+        <div class="aliado-item-text">Inicio rápido y sin complicaciones</div>
+      </div>
+      <div class="aliado-item">
+        <div class="aliado-num">2</div>
+        <div class="aliado-item-text">Eficiencia operativa desde el primer día</div>
+      </div>
+      <div class="aliado-item">
+        <div class="aliado-num">3</div>
+        <div class="aliado-item-text">Control financiero total</div>
+      </div>
+      <div class="aliado-item">
+        <div class="aliado-num">4</div>
+        <div class="aliado-item-text">Inventario optimizado</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-block">
+    <div class="cta-title">¿Empezamos?</div>
+    <div class="cta-text">Ve a <a href="https://holded.com/es">holded.com/es</a> y crea tu cuenta de prueba gratis durante 14 días. Sigue "los pasos del éxito" y no olvides que puedes apoyarte en tu Partner y en el equipo de Holded. <b>¡Empieza hoy a facturar con Holded! Tu éxito es nuestro objetivo.</b></div>
+    <button class="cta-btn">Crear cuenta gratis →</button>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="logo">
+      <img class="logo-diamond" src="https://www.figma.com/api/mcp/asset/643cdf15-3efa-414d-a6a1-14156f92585b" alt="" />
+      <div class="logo-wordmark">
+        <img src="https://www.figma.com/api/mcp/asset/f461efb3-4547-44bf-9392-c34d5d346495" alt="holded" />
+      </div>
+    </div>
+    <div class="footer-line"></div>
+    <div class="footer-text">© Holded · Documento para uso externo</div>
+  </div>
+
+</div>
+</body>
+</html>
