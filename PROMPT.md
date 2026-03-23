@@ -150,7 +150,8 @@ SECCIÓN: ¿Por qué somos tu mejor aliado?
 BLOQUE CTA — .cta-block (gray-100, padding 40px)
 ├── Título "¿Empezamos?"
 ├── Texto con link holded.com/es
-└── Botón "Crear cuenta gratis →"
+└── Botón "<a class="cta-btn" href="https://app.holded.com/signup?lang=es" target="_blank">Crear cuenta gratis →</a>"
+    ⚠️ Usar siempre etiqueta <a> (no <button>) con href a https://app.holded.com/signup?lang=es
 
 FOOTER
 ├── Logo
