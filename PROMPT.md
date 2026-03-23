@@ -259,7 +259,7 @@ Copiar el archivo HTML del sector más cercano (ej. `holded-retail-EXTERNO.html`
 
 Cambios por sección en el EXTERNO:
 1. `<title>` → nombre del sector
-2. `.hero-title` → "Sector\n[Nombre]"
+2. `.hero-title` → nombre del sector únicamente. **NUNCA añadir "y Holded" ni variantes al título.**
 3. `.hero-tagline` → tagline del sector
 4. `.hero-desc` → descripción corta
 5. `.hero-image src` → URL imagen del sector
@@ -273,7 +273,7 @@ Cambios por sección en el EXTERNO:
 
 Cambios en el INTERNO:
 1. `<title>` → nombre del sector
-2. `.hero-title` → "Toolkit\n[Sector]"
+2. `.hero-title` → "Toolkit\n[Sector]". **NUNCA añadir "y Holded" ni variantes al título.**
 3. `.hero-desc` → descripción de para qué sirve la guía
 4. `.hero-image src` → misma URL imagen que el EXTERNO del mismo sector
 5. 5 `.pain-card` → `.pain-problem` (rojo) + `.pain-solution` (con `<b>`)
