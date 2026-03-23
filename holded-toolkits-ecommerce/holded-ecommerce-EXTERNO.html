@@ -764,5 +764,15 @@
   </div>
 
 </div>
+<script>
+(function() {
+  var doc = document.querySelector('.document');
+  if (!doc) return;
+  var height = Math.ceil(doc.getBoundingClientRect().height) + 106;
+  var style = document.createElement('style');
+  style.textContent = '@page { size: 691px ' + height + 'px; margin: 0; }';
+  document.head.appendChild(style);
+})();
+</script>
 </body>
 </html>

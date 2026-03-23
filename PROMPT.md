@@ -54,7 +54,22 @@ Incluir siempre este bloque CSS justo después del cierre `}` del bloque `:root`
 }
 ```
 
-Esto hace que Chrome genere un PDF de una sola página larga al imprimir, sin cortes de página.
+Y añadir siempre este script justo antes de `</body>`, en todos los documentos (EXTERNO e INTERNO):
+
+```html
+<script>
+(function() {
+  var doc = document.querySelector('.document');
+  if (!doc) return;
+  var height = Math.ceil(doc.getBoundingClientRect().height) + 106;
+  var style = document.createElement('style');
+  style.textContent = '@page { size: 691px ' + height + 'px; margin: 0; }';
+  document.head.appendChild(style);
+})();
+</script>
+```
+
+El CSS define un fallback de 5000px. El script mide el contenido real al cargar la página y sobreescribe el @page con el height exacto (altura del documento + 96px de padding del body + 10px de margen de seguridad). Esto garantiza que el PDF sea siempre una página continua ajustada al contenido, sin espacio sobrante, sin necesidad de medir nada manualmente.
 
 ### Clase de iconos FA7
 
