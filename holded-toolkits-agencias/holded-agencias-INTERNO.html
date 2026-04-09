@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Holded — Toolkit Agencias</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  @font-face {
+    font-family: 'Font Awesome 7 Pro';
+    font-style: normal;
+    font-weight: 100;
+    src: url('Font_Awesome_7_Pro-Thin-100.otf') format('opentype');
+  }
+  @font-face {
+    font-family: 'Font Awesome 7 Pro';
+    font-style: normal;
+    font-weight: 300;
+    src: url('Font_Awesome_7_Pro-Light-300.otf') format('opentype');
+  }
+  @font-face {
+    font-family: 'Font Awesome 7 Pro';
+    font-style: normal;
+    font-weight: 400;
+    src: url('Font_Awesome_7_Pro-Regular-400.otf') format('opentype');
+  }
+  @font-face {
+    font-family: 'Font Awesome 7 Pro';
+    font-style: normal;
+    font-weight: 900;
+    src: url('Font_Awesome_7_Pro-Solid-900.otf') format('opentype');
+  }
+  .fa-icon {
+    font-family: 'Font Awesome 7 Pro';
+    font-weight: 900;
+    font-style: normal;
+    font-size: 12px;
+    color: #111827;
+    line-height: 12px;
+    display: block;
+  }
+</style>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --gray-900: #111827;
+    --gray-500: #6B7280;
+    --gray-400: #9CA3AF;
+    --gray-100: #F3F4F6;
+    --white: #FFFFFF;
+    --red: #FF5454;
+    --navy-overlay: rgba(14,36,85,0.05);
+    --doc-width: 691px;
+  }
+
+  @page {
+    size: 691px 2600px;
+    margin: 0;
+  }
+
+  body {
+    background: #e5e7eb;
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    justify-content: center;
+    padding: 48px 24px;
+    min-height: 100vh;
+  }
+
+  .document {
+    position: relative;
+    width: var(--doc-width);
+    background: var(--white);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 70px;
+    padding: 30px 0;
+  }
+
+  /* WATERMARK */
+  .hero-wrapper {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 70px;
+  }
+  .watermark {
+    position: absolute;
+    top: -18px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 134.269px;
+    color: var(--navy-overlay);
+    white-space: nowrap;
+    letter-spacing: -7.3848px;
+    pointer-events: none;
+    z-index: 1;
+    line-height: 1;
+  }
+  .hero-wrapper .logo,
+  .hero-wrapper .hero { position: relative; z-index: 2; }
+
+  /* LOGO */
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 3.359px;
+  }
+  .logo-diamond {
+    width: 12.31px;
+    height: 10.75px;
+    display: block;
+  }
+  .logo-wordmark {
+    width: 49.523px;
+    height: 10.88px;
+    flex-shrink: 0;
+    display: block;
+    overflow: hidden;
+  }
+  .logo-wordmark img, .logo-wordmark svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+
+  /* HERO */
+  .hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    width: 100%;
+  }
+  .hero-titles {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    line-height: 0.85;
+  }
+  .hero-title {
+    font-size: 60px;
+    font-weight: 600;
+    color: var(--gray-900);
+    letter-spacing: -3.3px;
+    text-align: center;
+    line-height: 54px;
+  }
+  .hero-subtitle {
+    font-size: 20px;
+    font-weight: 400;
+    color: var(--gray-400);
+    letter-spacing: -1.1px;
+    line-height: 1.3;
+  }
+  .hero-desc {
+    font-size: 11px;
+    font-weight: 400;
+    color: var(--gray-900);
+    text-align: center;
+    width: 315px;
+    line-height: 1.5;
+  }
+  .hero-image {
+    width: 315px;
+    height: 318px;
+    border-radius: 8px;
+    overflow: hidden;
+    flex-shrink: 0;
+    position: relative;
+  }
+  .hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 20%;
+    display: block;
+  }
+
+  /* SECTION */
+  .section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    width: 100%;
+  }
+  .section-title {
+    font-size: 40px;
+    font-weight: 600;
+    color: var(--gray-900);
+    letter-spacing: -2.2px;
+    line-height: 1.0;
+    text-align: center;
+  }
+
+  /* PAIN POINTS GRID */
+  .pain-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 513px;
+  }
+  .pain-row {
+    display: flex;
+    gap: 10px;
+  }
+  .pain-card {
+    flex: 1;
+    background: var(--gray-100);
+    border-radius: 4px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .pain-card.full { flex: unset; width: 251.5px; }
+  .pain-problem {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--red);
+    letter-spacing: -0.2px;
+    line-height: 1.5;
+    margin-bottom: 0;
+  }
+  .pain-solution {
+    font-size: 11px;
+    font-weight: 400;
+    color: var(--gray-900);
+    line-height: 1.5;
+    margin-top: 4px;
+  }
+  .pain-solution b {
+    font-weight: 700;
+  }
+
+  /* GREY BLOCK */
+  .grey-block {
+    background: var(--gray-100);
+    width: 100%;
+    padding: 80px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+  .grey-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+  .subsection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+  .subsection-title {
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--gray-900);
+    letter-spacing: -0.16px;
+    line-height: 1.2;
+    text-align: center;
+    width: 352px;
+  }
+  .list-items {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 433px;
+  }
+  .list-item {
+    background: var(--white);
+    border-radius: 4px;
+    padding: 5px 10px;
+    font-size: 11px;
+    font-weight: 400;
+    color: var(--gray-900);
+    line-height: 1.5;
+  }
+  .list-item b { font-weight: 700; }
+
+  /* TESTIMONIALS */
+  .testimonials-row {
+    display: flex;
+    gap: 40px;
+    width: 525px;
+    align-items: flex-start;
+  }
+  .testimonial-col {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .testimonial-icon {
+    background: var(--gray-100);
+    border-radius: 2.625px;
+    padding: 6px;
+    width: fit-content;
+    font-size: 12px;
+    color: var(--gray-900);
+    line-height: 12px;
+  }
+  .testimonial-name {
+    font-size: 10px;
+    font-weight: 400;
+    color: var(--gray-900);
+    line-height: 10px;
+  }
+  .testimonial-company {
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--gray-900);
+    line-height: 10px;
+    margin-top: -4px;
+  }
+  .testimonial-quote {
+    font-size: 11px;
+    font-weight: 400;
+    color: var(--gray-500);
+    line-height: 1.5;
+  }
+
+  /* FOOTER */
+  .footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    width: 100%;
+  }
+  .footer-line {
+    width: 496px;
+    height: 1px;
+    background: var(--gray-100);
+    margin: 20px 0 12px;
+  }
+  .footer-text {
+    font-size: 11px;
+    font-weight: 400;
+    color: var(--gray-500);
+    text-align: center;
+    margin-top: 8px;
+    line-height: 1.5;
+  }
+</style>
+</head>
+<body>
+<div class="document">
+
+  <!-- HERO WRAPPER: watermark + logo + hero -->
+  <div class="hero-wrapper">
+
+    <!-- WATERMARK -->
+    <div class="watermark">Internal use</div>
+
+    <!-- HEADER LOGO -->
+    <div class="logo">
+      <svg class="logo-diamond" width="12.31" height="10.75" viewBox="0 0 568 496" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M415.094 327.204L160.989 28.1327C157.709 24.3973 156.186 20.4283 156.186 16.1092C156.186 11.3231 157.943 7.3542 161.458 4.43587C164.855 1.51753 169.541 0 175.516 0H412.634C422.944 0 431.262 3.73547 437.705 11.2064L562.707 154.205C565.988 158.524 567.745 164.127 567.979 171.131C568.214 178.135 566.456 183.738 562.707 188.057L440.868 324.752C437.705 328.604 433.37 330.822 427.981 331.639C422.592 332.457 418.375 330.939 415.094 327.204Z" fill="#FF5454"/>
+<path d="M270.762 489.58L5.29257 183.271C1.54367 178.952 -0.213632 173.349 0.020674 166.462C0.372134 159.458 2.36375 153.855 6.11265 149.535L91.6345 49.8451C95.9691 45.0591 100.538 42.6077 105.341 42.6077C111.199 42.6077 116.119 45.0591 119.868 49.8451L386.978 363.391C390.141 367.126 391.781 371.095 391.781 375.064C391.781 379.15 390.258 383.002 386.978 386.738L296.652 489.58C293.372 493.899 289.272 496 284.117 496C278.962 496 274.511 493.899 270.762 489.58Z" fill="#FF5454"/>
+</svg>
+      <div class="logo-wordmark">
+        <svg width="49.523" height="10.88" viewBox="723 0 2285 502" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip_wm)">
+<path d="M2803.55 413.117C2783.67 413.117 2766.13 408.322 2750.81 398.617C2735.5 388.912 2723.45 375.699 2714.57 358.744C2705.68 341.789 2701.24 322.612 2701.24 301.214C2701.24 279.699 2705.68 260.639 2714.57 244.035C2723.45 227.43 2735.5 214.568 2750.81 205.331C2766.13 196.21 2783.67 191.65 2803.55 191.65C2833.02 191.65 2857.57 201.823 2877.22 222.285C2896.86 242.748 2906.57 268.941 2906.57 301.214C2906.57 322.144 2902.12 341.204 2893.24 358.393C2884.35 375.582 2872.07 389.029 2856.17 398.617C2840.5 408.205 2822.84 413.117 2803.55 413.117ZM2381.66 500.815C2416.51 500.815 2448.31 492.98 2477.08 477.429C2505.84 461.877 2528.41 440.712 2545.13 413.818C2548.41 409.024 2547 404.931 2541.16 401.774L2475.09 367.163C2469.71 364.473 2465.39 365.877 2462.23 371.138C2455.8 383.533 2445.16 393.472 2430.42 400.956C2415.69 408.439 2399.91 412.181 2383.3 412.181C2353.83 412.181 2329.51 401.774 2310.45 380.727C2291.39 359.796 2281.92 332.902 2281.92 300.161C2281.92 266.836 2291.63 240.176 2310.92 220.064C2330.21 199.952 2354.42 189.896 2383.42 189.896C2403.3 189.896 2420.84 194.573 2436.15 204.044C2451.47 213.399 2462.7 225.793 2469.95 241.111C2477.2 256.429 2479.18 272.917 2476.03 290.69L2480 267.304H2268.24L2279.47 336.527H2560.45C2566.3 336.527 2569.81 333.604 2570.86 327.64C2571.44 317.935 2571.91 308.347 2572.49 298.641C2572.49 262.744 2564.54 229.535 2548.76 199.25C2532.97 168.965 2510.64 144.994 2481.87 127.572C2453.11 110.149 2419.78 101.379 2381.66 101.379C2344.13 101.379 2309.99 110.266 2279.35 127.922C2248.71 145.696 2224.86 169.784 2207.67 200.419C2190.48 231.055 2181.95 264.614 2181.95 301.097C2181.95 339.216 2190.36 373.594 2207.32 404.113C2224.27 434.749 2247.89 458.486 2278.18 475.324C2308.47 492.396 2342.96 500.815 2381.66 500.815ZM1914.64 501.633C1934.99 501.633 1953.93 498.125 1971.35 491.109C1988.78 484.094 2002.92 475.558 2013.68 465.385C2024.44 455.212 2031.11 445.74 2033.79 437.204V483.158C2033.79 485.848 2034.73 488.186 2036.6 490.057C2038.47 491.928 2040.81 492.863 2043.5 492.863H2125.59C2128.27 492.863 2130.5 491.928 2132.48 490.057C2134.36 488.186 2135.29 485.848 2135.29 483.158V9.70526C2135.29 7.01585 2134.36 4.79416 2132.48 2.80634C2130.61 0.935447 2128.27 0 2125.59 0H2043.5C2040.81 0 2038.47 0.935447 2036.6 2.80634C2034.73 4.67723 2033.79 7.01585 2033.79 9.70526V160.195C2031.11 154.349 2024.21 146.631 2013.21 137.277C2002.22 127.922 1988.31 119.62 1971.35 112.371C1954.4 105.121 1935.81 101.496 1915.34 101.496C1880.5 101.496 1848.93 110.266 1820.75 127.688C1792.57 145.111 1770.23 169.082 1753.86 199.367C1737.49 229.652 1729.31 263.679 1729.31 301.214C1729.31 338.749 1737.49 372.892 1753.86 403.528C1770.23 434.164 1792.68 458.135 1821.1 475.558C1849.63 492.863 1880.85 501.633 1914.64 501.633ZM1930.78 413.117C1911.48 413.117 1893.95 408.322 1878.39 398.617C1862.84 388.912 1850.56 375.699 1841.79 358.744C1832.91 341.789 1828.46 322.612 1828.46 301.214C1828.46 279.699 1832.91 260.639 1841.79 244.035C1850.68 227.43 1862.84 214.568 1878.39 205.331C1893.95 196.21 1911.37 191.65 1930.78 191.65C1960.25 191.65 1984.8 201.823 2004.44 222.285C2024.09 242.748 2033.79 268.941 2033.79 301.214C2033.79 322.144 2029.35 341.204 2020.46 358.393C2011.58 375.582 1999.3 389.029 1983.4 398.617C1967.61 408.205 1950.07 413.117 1930.78 413.117ZM1592.5 492.746H1674.58C1677.27 492.746 1679.49 491.811 1681.48 489.94C1683.35 488.069 1684.29 485.731 1684.29 483.041V9.70526C1684.29 7.01585 1683.35 4.79416 1681.48 2.80634C1679.61 0.935447 1677.27 0 1674.58 0H1592.5C1589.81 0 1587.59 0.935447 1585.6 2.80634C1583.73 4.67723 1582.79 7.01585 1582.79 9.70526V483.158C1582.79 485.848 1583.73 488.186 1585.6 490.057C1587.59 491.811 1589.81 492.746 1592.5 492.746ZM1333.26 411.48C1303.21 411.48 1278.07 401.424 1257.96 381.311C1237.85 361.199 1227.79 334.773 1227.79 302.032C1227.79 269.292 1237.85 242.748 1257.96 222.285C1278.07 201.94 1303.21 191.65 1333.26 191.65C1363.31 191.65 1388.45 201.823 1408.57 222.285C1428.68 242.748 1438.73 269.292 1438.73 302.032C1438.73 334.773 1428.79 361.199 1408.92 381.311C1389.15 401.424 1363.9 411.48 1333.26 411.48ZM1333.26 501.633C1372.43 501.633 1407.63 492.746 1438.73 475.09C1469.84 457.316 1494.16 433.346 1511.58 403.061C1529 372.775 1537.77 339.099 1537.77 302.032C1537.77 264.965 1529 231.172 1511.58 200.536C1494.16 169.9 1469.84 145.813 1438.73 128.039C1407.63 110.383 1372.43 101.496 1333.26 101.496C1294.09 101.496 1258.89 110.383 1227.79 128.039C1196.69 145.813 1172.37 169.9 1154.94 200.536C1137.52 231.172 1128.75 264.965 1128.75 302.032C1128.75 339.099 1137.52 372.775 1154.94 403.061C1172.37 433.346 1196.69 457.433 1227.79 475.09C1258.89 492.746 1294.09 501.633 1333.26 501.633ZM732.588 492.746H814.674C817.363 492.746 819.585 491.811 821.573 489.94C823.444 488.069 824.379 485.731 824.379 483.041V287.416C824.379 258.417 832.096 235.382 847.765 218.193C863.317 201.004 883.429 192.468 908.101 192.468C931.137 192.468 949.378 199.952 962.825 215.036C976.272 230.12 982.937 251.284 982.937 278.646V483.158C982.937 485.848 983.873 488.186 985.743 490.057C987.614 491.928 989.836 492.863 992.642 492.863H1074.73C1077.42 492.863 1079.64 491.928 1081.63 490.057C1083.5 488.186 1084.43 485.848 1084.43 483.158V262.51C1084.43 221.233 1076.48 188.609 1060.7 164.639C1044.91 140.785 1026.08 124.297 1004.34 115.177C982.586 106.056 961.305 101.496 940.374 101.496C914.65 101.496 890.913 106.524 869.164 116.346C847.414 126.285 832.564 139.031 824.496 154.583V9.70526C824.496 7.01585 823.56 4.79416 821.69 2.80634C819.819 0.935447 817.48 0 814.791 0H732.705C730.016 0 727.794 0.935447 725.806 2.80634C723.935 4.67723 723 7.01585 723 9.70526V483.158C723 485.848 723.935 488.186 725.806 490.057C727.677 491.811 729.899 492.746 732.588 492.746ZM2787.41 501.633C2807.76 501.633 2826.7 498.125 2844.12 491.109C2861.55 484.094 2875.7 475.558 2886.45 465.385C2897.21 455.212 2903.88 445.74 2906.57 437.204V483.158C2906.57 485.848 2907.5 488.186 2909.37 490.057C2911.24 491.928 2913.47 492.863 2916.27 492.863H2998.36C3001.05 492.863 3003.27 491.928 3005.26 490.057C3007.13 488.186 3008.06 485.848 3008.06 483.158V9.70526C3008.06 7.01585 3007.13 4.79416 3005.26 2.80634C3003.38 0.935447 3001.05 0 2998.36 0H2916.27C2913.58 0 2911.24 0.935447 2909.37 2.80634C2907.5 4.67723 2906.57 7.01585 2906.57 9.70526V160.195C2903.88 154.349 2896.98 146.631 2885.99 137.277C2874.99 127.922 2861.08 119.62 2844.12 112.371C2827.17 105.121 2808.58 101.496 2788.12 101.496C2753.27 101.496 2721.7 110.266 2693.52 127.688C2665.34 145.111 2643 169.082 2626.75 199.367C2610.38 229.652 2602.19 263.679 2602.19 301.214C2602.19 338.749 2610.38 372.892 2626.75 403.528C2643.12 434.164 2665.57 458.135 2693.99 475.558C2722.52 492.863 2753.62 501.633 2787.41 501.633Z" fill="#111827"/>
+</g>
+<defs>
+<clipPath id="clip_wm">
+<rect width="2285" height="502" fill="white" transform="translate(723)"/>
+</clipPath>
+</defs>
+</svg>
+      </div>
+    </div>
+
+    <!-- HERO -->
+    <div class="hero">
+      <div class="hero-titles">
+        <div class="hero-title">Toolkit<br>Agencias</div>
+        <div class="hero-subtitle">Claves rápidas para Ventas</div>
+      </div>
+      <p class="hero-desc">Guía rápida para abordar a clientes del sector. Úsalo para recordar los puntos clave y personaliza tu discurso según las necesidades específicas de cada caso.</p>
+      <div class="hero-image">
+        <img
+          src="https://i.postimg.cc/LRp7ZJc2/Agencia.png"
+          alt="Agencias"
+        />
+      </div>
+    </div>
+
+  </div>
+
+  <!-- PAIN POINTS -->
+  <div class="section">
+    <div class="section-title">Problemas comunes<br>y soluciones de Holded</div>
+    <div class="pain-grid">
+      <div class="pain-row">
+        <div class="pain-card">
+          <div class="pain-problem">Es difícil controlar la rentabilidad por proyecto y visualizar la carga de trabajo de los equipos.</div>
+          <div class="pain-solution"><b>Dashboard en tiempo real</b> que muestra la salud financiera y rentabilidad por proyecto.</div>
+        </div>
+        <div class="pain-card">
+          <div class="pain-problem">Cuesta acceder a la información financiera en tiempo real, por depender de las asesorías externas para llevar la contabilidad del negocio.</div>
+          <div class="pain-solution"><b>Contabilidad automatizada,</b> con información siempre disponible en tiempo real, aunque trabajes con una asesoría.</div>
+        </div>
+      </div>
+      <div class="pain-row">
+        <div class="pain-card">
+          <div class="pain-problem">Usar múltiples programas no integrados hace que los procesos sean desorganizados.</div>
+          <div class="pain-solution">Plataforma todo en uno que centraliza facturación, gestión de proyectos, CRM y RRHH, conectando equipos y mejorando la comunicación.</div>
+        </div>
+        <div class="pain-card">
+          <div class="pain-problem">Hacer la implementación de Holded (configuración inicial y migración de datos) es complicado.</div>
+          <div class="pain-solution">Equipo de <b>soporte dedicado</b> para ayudar a <b>implementar</b>, con migración simplificada de datos y configuración personalizada.</div>
+        </div>
+      </div>
+      <div class="pain-row">
+        <div class="pain-card">
+          <div class="pain-problem">Se pierde mucho tiempo buscando información de forma manual en el Excel.</div>
+          <div class="pain-solution">Automatización de procesos y creación de informes, reduciendo errores y permitiendo escalabilidad y crecimiento del negocio.</div>
+        </div>
+        <div class="pain-card">
+          <div class="pain-problem">Los documentos no tienen el look &amp; feel de la agencia.</div>
+          <div class="pain-solution"><b>Plantillas de documentos personalizables</b> para que tu marca e imagen estén siempre presentes en presupuestos y facturas.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- GREY BLOCK -->
+  <div class="grey-block">
+    <div class="grey-inner">
+
+      <!-- Mensajes clave -->
+      <div class="subsection">
+        <div class="section-title" style="width:316px;">Mensajes clave<br>para Ventas</div>
+        <div class="list-items">
+          <div class="list-item">Holded conecta equipos y optimiza procesos en una única plataforma.</div>
+          <div class="list-item">Ideal para agencias que necesitan flexibilidad y escalabilidad.</div>
+          <div class="list-item">Ahorra tiempo y mejora la rentabilidad con una solución todo en uno.</div>
+          <div class="list-item">Asegúrate de que tu marca está presente en todos los documentos de facturación.</div>
+        </div>
+      </div>
+
+      <!-- Datos de impacto -->
+      <div class="subsection">
+        <div class="subsection-title">Datos de impacto</div>
+        <div class="list-items">
+          <div class="list-item"><b>30%</b> de ahorro en tiempo administrativo.</div>
+          <div class="list-item"><b>Gestión integral</b> en la rentabilidad por proyecto.</div>
+          <div class="list-item"><b>Menos errores</b> humanos gracias a la automatización.</div>
+        </div>
+      </div>
+
+      <!-- Notas para Ventas -->
+      <div class="subsection">
+        <div class="subsection-title">Notas para el equipo de Ventas</div>
+        <div class="list-items">
+          <div class="list-item">Identifica el <b>decision maker</b> (CEO o responsable de administración).</div>
+          <div class="list-item"><b>Personaliza el mensaje según las necesidades específicas de la agencia.</b></div>
+          <div class="list-item">Usa ejemplos prácticos y casos de éxito para reforzar tu discurso.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- TESTIMONIALS -->
+  <div class="section">
+    <div class="section-title">Frases inspiradoras<br>de clientes satisfechos:</div>
+    <div class="testimonials-row">
+      <div class="testimonial-col">
+        <div class="testimonial-icon"><span class="fa-icon">&#xF029;</span></div>
+        <div class="testimonial-name">Clientes entrevistados,</div>
+        <div class="testimonial-company">FamilyDifferent.</div>
+        <div class="testimonial-quote">"Proyectos en Holded te permite tener una visibilidad de la rentabilidad de cada proyecto y un control documental total."</div>
+      </div>
+      <div class="testimonial-col">
+        <div class="testimonial-icon"><span class="fa-icon">&#xF0AD;</span></div>
+        <div class="testimonial-name">Clientes entrevistados,</div>
+        <div class="testimonial-company">FamilyDifferent.</div>
+        <div class="testimonial-quote">"Pasamos de trabajar todo con Excel a crear presupuestos y facturas 100% con Holded, de forma mucho más ágil y personalizada."</div>
+      </div>
+      <div class="testimonial-col">
+        <div class="testimonial-icon"><span class="fa-icon">&#xF109;</span></div>
+        <div class="testimonial-name">Clientes entrevistados,</div>
+        <div class="testimonial-company">Cúrcuma Digital</div>
+        <div class="testimonial-quote">"Agilizamos la gestión empresarial al 100% con la propuesta todo en uno de Holded."</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="logo">
+      <svg class="logo-diamond" width="12.31" height="10.75" viewBox="0 0 568 496" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M415.094 327.204L160.989 28.1327C157.709 24.3973 156.186 20.4283 156.186 16.1092C156.186 11.3231 157.943 7.3542 161.458 4.43587C164.855 1.51753 169.541 0 175.516 0H412.634C422.944 0 431.262 3.73547 437.705 11.2064L562.707 154.205C565.988 158.524 567.745 164.127 567.979 171.131C568.214 178.135 566.456 183.738 562.707 188.057L440.868 324.752C437.705 328.604 433.37 330.822 427.981 331.639C422.592 332.457 418.375 330.939 415.094 327.204Z" fill="#FF5454"/>
+<path d="M270.762 489.58L5.29257 183.271C1.54367 178.952 -0.213632 173.349 0.020674 166.462C0.372134 159.458 2.36375 153.855 6.11265 149.535L91.6345 49.8451C95.9691 45.0591 100.538 42.6077 105.341 42.6077C111.199 42.6077 116.119 45.0591 119.868 49.8451L386.978 363.391C390.141 367.126 391.781 371.095 391.781 375.064C391.781 379.15 390.258 383.002 386.978 386.738L296.652 489.58C293.372 493.899 289.272 496 284.117 496C278.962 496 274.511 493.899 270.762 489.58Z" fill="#FF5454"/>
+</svg>
+      <div class="logo-wordmark">
+        <svg width="49.523" height="10.88" viewBox="723 0 2285 502" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip_wm)">
+<path d="M2803.55 413.117C2783.67 413.117 2766.13 408.322 2750.81 398.617C2735.5 388.912 2723.45 375.699 2714.57 358.744C2705.68 341.789 2701.24 322.612 2701.24 301.214C2701.24 279.699 2705.68 260.639 2714.57 244.035C2723.45 227.43 2735.5 214.568 2750.81 205.331C2766.13 196.21 2783.67 191.65 2803.55 191.65C2833.02 191.65 2857.57 201.823 2877.22 222.285C2896.86 242.748 2906.57 268.941 2906.57 301.214C2906.57 322.144 2902.12 341.204 2893.24 358.393C2884.35 375.582 2872.07 389.029 2856.17 398.617C2840.5 408.205 2822.84 413.117 2803.55 413.117ZM2381.66 500.815C2416.51 500.815 2448.31 492.98 2477.08 477.429C2505.84 461.877 2528.41 440.712 2545.13 413.818C2548.41 409.024 2547 404.931 2541.16 401.774L2475.09 367.163C2469.71 364.473 2465.39 365.877 2462.23 371.138C2455.8 383.533 2445.16 393.472 2430.42 400.956C2415.69 408.439 2399.91 412.181 2383.3 412.181C2353.83 412.181 2329.51 401.774 2310.45 380.727C2291.39 359.796 2281.92 332.902 2281.92 300.161C2281.92 266.836 2291.63 240.176 2310.92 220.064C2330.21 199.952 2354.42 189.896 2383.42 189.896C2403.3 189.896 2420.84 194.573 2436.15 204.044C2451.47 213.399 2462.7 225.793 2469.95 241.111C2477.2 256.429 2479.18 272.917 2476.03 290.69L2480 267.304H2268.24L2279.47 336.527H2560.45C2566.3 336.527 2569.81 333.604 2570.86 327.64C2571.44 317.935 2571.91 308.347 2572.49 298.641C2572.49 262.744 2564.54 229.535 2548.76 199.25C2532.97 168.965 2510.64 144.994 2481.87 127.572C2453.11 110.149 2419.78 101.379 2381.66 101.379C2344.13 101.379 2309.99 110.266 2279.35 127.922C2248.71 145.696 2224.86 169.784 2207.67 200.419C2190.48 231.055 2181.95 264.614 2181.95 301.097C2181.95 339.216 2190.36 373.594 2207.32 404.113C2224.27 434.749 2247.89 458.486 2278.18 475.324C2308.47 492.396 2342.96 500.815 2381.66 500.815ZM1914.64 501.633C1934.99 501.633 1953.93 498.125 1971.35 491.109C1988.78 484.094 2002.92 475.558 2013.68 465.385C2024.44 455.212 2031.11 445.74 2033.79 437.204V483.158C2033.79 485.848 2034.73 488.186 2036.6 490.057C2038.47 491.928 2040.81 492.863 2043.5 492.863H2125.59C2128.27 492.863 2130.5 491.928 2132.48 490.057C2134.36 488.186 2135.29 485.848 2135.29 483.158V9.70526C2135.29 7.01585 2134.36 4.79416 2132.48 2.80634C2130.61 0.935447 2128.27 0 2125.59 0H2043.5C2040.81 0 2038.47 0.935447 2036.6 2.80634C2034.73 4.67723 2033.79 7.01585 2033.79 9.70526V160.195C2031.11 154.349 2024.21 146.631 2013.21 137.277C2002.22 127.922 1988.31 119.62 1971.35 112.371C1954.4 105.121 1935.81 101.496 1915.34 101.496C1880.5 101.496 1848.93 110.266 1820.75 127.688C1792.57 145.111 1770.23 169.082 1753.86 199.367C1737.49 229.652 1729.31 263.679 1729.31 301.214C1729.31 338.749 1737.49 372.892 1753.86 403.528C1770.23 434.164 1792.68 458.135 1821.1 475.558C1849.63 492.863 1880.85 501.633 1914.64 501.633ZM1930.78 413.117C1911.48 413.117 1893.95 408.322 1878.39 398.617C1862.84 388.912 1850.56 375.699 1841.79 358.744C1832.91 341.789 1828.46 322.612 1828.46 301.214C1828.46 279.699 1832.91 260.639 1841.79 244.035C1850.68 227.43 1862.84 214.568 1878.39 205.331C1893.95 196.21 1911.37 191.65 1930.78 191.65C1960.25 191.65 1984.8 201.823 2004.44 222.285C2024.09 242.748 2033.79 268.941 2033.79 301.214C2033.79 322.144 2029.35 341.204 2020.46 358.393C2011.58 375.582 1999.3 389.029 1983.4 398.617C1967.61 408.205 1950.07 413.117 1930.78 413.117ZM1592.5 492.746H1674.58C1677.27 492.746 1679.49 491.811 1681.48 489.94C1683.35 488.069 1684.29 485.731 1684.29 483.041V9.70526C1684.29 7.01585 1683.35 4.79416 1681.48 2.80634C1679.61 0.935447 1677.27 0 1674.58 0H1592.5C1589.81 0 1587.59 0.935447 1585.6 2.80634C1583.73 4.67723 1582.79 7.01585 1582.79 9.70526V483.158C1582.79 485.848 1583.73 488.186 1585.6 490.057C1587.59 491.811 1589.81 492.746 1592.5 492.746ZM1333.26 411.48C1303.21 411.48 1278.07 401.424 1257.96 381.311C1237.85 361.199 1227.79 334.773 1227.79 302.032C1227.79 269.292 1237.85 242.748 1257.96 222.285C1278.07 201.94 1303.21 191.65 1333.26 191.65C1363.31 191.65 1388.45 201.823 1408.57 222.285C1428.68 242.748 1438.73 269.292 1438.73 302.032C1438.73 334.773 1428.79 361.199 1408.92 381.311C1389.15 401.424 1363.9 411.48 1333.26 411.48ZM1333.26 501.633C1372.43 501.633 1407.63 492.746 1438.73 475.09C1469.84 457.316 1494.16 433.346 1511.58 403.061C1529 372.775 1537.77 339.099 1537.77 302.032C1537.77 264.965 1529 231.172 1511.58 200.536C1494.16 169.9 1469.84 145.813 1438.73 128.039C1407.63 110.383 1372.43 101.496 1333.26 101.496C1294.09 101.496 1258.89 110.383 1227.79 128.039C1196.69 145.813 1172.37 169.9 1154.94 200.536C1137.52 231.172 1128.75 264.965 1128.75 302.032C1128.75 339.099 1137.52 372.775 1154.94 403.061C1172.37 433.346 1196.69 457.433 1227.79 475.09C1258.89 492.746 1294.09 501.633 1333.26 501.633ZM732.588 492.746H814.674C817.363 492.746 819.585 491.811 821.573 489.94C823.444 488.069 824.379 485.731 824.379 483.041V287.416C824.379 258.417 832.096 235.382 847.765 218.193C863.317 201.004 883.429 192.468 908.101 192.468C931.137 192.468 949.378 199.952 962.825 215.036C976.272 230.12 982.937 251.284 982.937 278.646V483.158C982.937 485.848 983.873 488.186 985.743 490.057C987.614 491.928 989.836 492.863 992.642 492.863H1074.73C1077.42 492.863 1079.64 491.928 1081.63 490.057C1083.5 488.186 1084.43 485.848 1084.43 483.158V262.51C1084.43 221.233 1076.48 188.609 1060.7 164.639C1044.91 140.785 1026.08 124.297 1004.34 115.177C982.586 106.056 961.305 101.496 940.374 101.496C914.65 101.496 890.913 106.524 869.164 116.346C847.414 126.285 832.564 139.031 824.496 154.583V9.70526C824.496 7.01585 823.56 4.79416 821.69 2.80634C819.819 0.935447 817.48 0 814.791 0H732.705C730.016 0 727.794 0.935447 725.806 2.80634C723.935 4.67723 723 7.01585 723 9.70526V483.158C723 485.848 723.935 488.186 725.806 490.057C727.677 491.811 729.899 492.746 732.588 492.746ZM2787.41 501.633C2807.76 501.633 2826.7 498.125 2844.12 491.109C2861.55 484.094 2875.7 475.558 2886.45 465.385C2897.21 455.212 2903.88 445.74 2906.57 437.204V483.158C2906.57 485.848 2907.5 488.186 2909.37 490.057C2911.24 491.928 2913.47 492.863 2916.27 492.863H2998.36C3001.05 492.863 3003.27 491.928 3005.26 490.057C3007.13 488.186 3008.06 485.848 3008.06 483.158V9.70526C3008.06 7.01585 3007.13 4.79416 3005.26 2.80634C3003.38 0.935447 3001.05 0 2998.36 0H2916.27C2913.58 0 2911.24 0.935447 2909.37 2.80634C2907.5 4.67723 2906.57 7.01585 2906.57 9.70526V160.195C2903.88 154.349 2896.98 146.631 2885.99 137.277C2874.99 127.922 2861.08 119.62 2844.12 112.371C2827.17 105.121 2808.58 101.496 2788.12 101.496C2753.27 101.496 2721.7 110.266 2693.52 127.688C2665.34 145.111 2643 169.082 2626.75 199.367C2610.38 229.652 2602.19 263.679 2602.19 301.214C2602.19 338.749 2610.38 372.892 2626.75 403.528C2643.12 434.164 2665.57 458.135 2693.99 475.558C2722.52 492.863 2753.62 501.633 2787.41 501.633Z" fill="#111827"/>
+</g>
+<defs>
+<clipPath id="clip_wm">
+<rect width="2285" height="502" fill="white" transform="translate(723)"/>
+</clipPath>
+</defs>
+</svg>
+      </div>
+    </div>
+    <div class="footer-line"></div>
+    <div class="footer-text">⚠️ Documento de uso exclusivamente interno. No compartir con clientes.</div>
+  </div>
+
+</div>
+<script>
+(function() {
+  var doc = document.querySelector('.document');
+  if (!doc) return;
+  var height = Math.ceil(doc.getBoundingClientRect().height) + 106;
+  var style = document.createElement('style');
+  style.textContent = '@page { size: 691px ' + height + 'px; margin: 0; }';
+  document.head.appendChild(style);
+})();
+</script>
+</body>
+</html>
