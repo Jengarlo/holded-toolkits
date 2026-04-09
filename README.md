@@ -10,11 +10,11 @@ Están hechos en HTML y son documentos estáticos listos para imprimir o compart
 
 | Sector | EXTERNO | INTERNO |
 |--------|---------|---------|
+| Agencias | ✅ | ✅ |
 | Servicios Profesionales | ✅ | ✅ |
 | Retail | ✅ | ✅ |
 | Distribución al por Mayor | ✅ | ✅ |
 | E-commerce | ✅ | ✅ |
-| Agencias | ✅ | ✅ |
 
 ---
 
